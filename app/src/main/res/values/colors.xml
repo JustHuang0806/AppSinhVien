@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <resources>
+
+        <!-- Màu cơ bản -->
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="blue_500">#2196F3</color>
+    <color name="blue_700">#1976D2</color>
+    <color name="green_500">#4CAF50</color>
+    <color name="red_500">#F44336</color>
+    <color name="orange_500">#FF9800</color>
+    <color name="gray_100">#F5F5F5</color>
+    <color name="gray_700">#616161</color>
+    <color name="cyan">#00FFFF</color>
+    <color name="cyan_500">#00BCD4</color>
+    <color name="dark_blue">#00008B</color>
+    <color name="navy_blue">#000080</color>
+
+
+    <!-- Màu chính -->
+    <color name="colorPrimary">#1976D2</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#FF9800</color>
+
+        <!-- Màu nền -->
+    <color name="background_cyan">#00FFFF</color>
+    <color name="bg_main">#F5F5F5</color>
+    <color name="bg_login">#E3F2FD</color>
+    <color name="bg_profile">#FFFFFF</color>
+
+    </resources>
+

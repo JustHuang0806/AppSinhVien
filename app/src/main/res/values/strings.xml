@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">ViewSinhVien</string>
+    <string name="ma_mh">Mã MH</string>
+    <string name="ten_mh">Tên MH</string>
+    <string name="phai_dong">Phải đóng</string>
+    <string name="da_dong">Đã đóng</string>
+    <string name="ngay_dong">Ngày đóng</string>
+    <string name="mien_giam">Miễn giảm</string>
+    <string name="con_no">Còn nợ</string>
+
+    <string name="tong_hoc_phi">Tổng học phí phải đóng: 0 VNĐ</string>
+    <string name="hoc_ky_nam_hoc">Năm học: 2022–2023, Học kỳ: 1</string>
+    <string name="hoc_ky_nam_hoc_2">Năm học: 2022–2023, Học kỳ: 2</string>
+    <string name="hoc_ky_nam_hoc_3">Năm học: 2022–2023, Học kỳ: 3</string>
+    <string name="hoc_ky_nam_hoc_4">Năm học: 2023–2024, Học kỳ: 1</string>
+    <string name="hoc_ky_nam_hoc_5">Năm học: 2023–2024, Học kỳ: 2</string>
+    <string name="hoc_ky_nam_hoc_6">Năm học: 2023–2024, Học kỳ: 3</string>
+    <string name="hoc_ky_nam_hoc_7">Năm học: 2024–2025, Học kỳ: 1</string>
+    <string name="hoc_ky_nam_hoc_8">Năm học: 2024–2025, Học kỳ: 2</string>
+    <string name="hoc_ky_nam_hoc_9">Năm học: 2024–2025, Học kỳ: 3</string>
+    <string name="hoc_ky_nam_hoc_10">Năm học: 2025–2026, Học kỳ: 1</string>
+    <string name="hoc_ky_nam_hoc_11">Năm học: 2025–2026, Học kỳ: 2</string>
+    <string name="hoc_ky_nam_hoc_12">Năm học: 2025–2026, Học kỳ: 3</string>
+
+
+
+</resources>

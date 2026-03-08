@@ -8,6 +8,7 @@ import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.example.appsinhvien_kotlin.NewsActivity
 import com.example.appsinhvien_kotlin.ProfileActivity
+import com.example.appsinhvien_kotlin.ScheduleActivity
 import com.google.android.material.button.MaterialButton
 import kotlin.jvm.java
 

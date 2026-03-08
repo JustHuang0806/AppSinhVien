@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F5F5F5"
+    android:padding="10dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="1"
+            android:background="#FFFFFF">
+
+            <TableRow android:background="#673AB7" android:padding="8dp">
+                <TextView android:text="Mã môn" android:textColor="#FFF" android:textStyle="bold" android:padding="5dp"/>
+                <TextView android:text="Tên môn học" android:textColor="#FFF" android:textStyle="bold" android:padding="5dp"/>
+                <TextView android:text="Điểm" android:textColor="#FFF" android:textStyle="bold" android:padding="5dp"/>
+            </TableRow>
+
+            <TableRow android:padding="8dp" android:background="#EEEEEE">
+                <TextView android:text="MOB201" android:padding="5dp"/>
+                <TextView android:text="Mạng máy tính" android:padding="5dp"/>
+                <TextView android:text="8.5" android:textColor="#FF0000" android:padding="5dp" android:textStyle="bold"/>
+            </TableRow>
+
+            <TableRow android:padding="8dp">
+                <TextView android:text="MOB204" android:padding="5dp"/>
+                <TextView android:text="Lập trình di động" android:padding="5dp"/>
+                <TextView android:text="9.0" android:textColor="#FF0000" android:padding="5dp" android:textStyle="bold"/>
+            </TableRow>
+
+            <TableRow android:padding="8dp" android:background="#EEEEEE">
+                <TextView android:text="MOB108" android:padding="5dp"/>
+                <TextView android:text="Nhập môn lập trình" android:padding="5dp"/>
+                <TextView android:text="7.5" android:textColor="#FF0000" android:padding="5dp" android:textStyle="bold"/>
+            </TableRow>
+
+            <TableRow android:padding="8dp">
+                <TextView android:text="MOB306" android:padding="5dp" />
+                <TextView android:text="Lập trình web" android:padding="5dp" />
+                <TextView android:text="8.0" android:textColor="#FF0000" android:padding="5dp" android:textStyle="bold"/>
+            </TableRow>
+
+            <TableRow android:padding="8dp" android:background="#EEEEEE">
+                <TextView android:text="TA111" android:padding="5dp"/>
+                <TextView android:text="Tiếng Anh chuyên ngành" android:padding="5dp"/>
+                <TextView android:text="8.2" android:textColor="#FF0000" android:padding="5dp" android:textStyle="bold"/>
+            </TableRow>
+
+            <TableRow android:padding="8dp">
+                <TextView android:text="MOB134" android:padding="5dp"/>
+                <TextView android:text="Dự án tốt nghiệp" android:padding="5dp"/>
+                <TextView android:text="9.5" android:textColor="#FF0000" android:padding="5dp" android:textStyle="bold"/>
+            </TableRow>
+
+            <TableRow android:padding="8dp" android:background="#EEEEEE">
+                <TextView android:text="MOD110" android:padding="5dp"/>
+                <TextView android:text="Thiết Kế Đồ Họa" android:padding="5dp"/>
+                <TextView android:text="7.8" android:textColor="#FF0000" android:padding="5dp" android:textStyle="bold"/>
+            </TableRow>
+
+            <TableRow android:padding="8dp">
+                <TextView android:text="TH110" android:padding="5dp"/>
+                <TextView android:text="Triết học Mác - Lênin" android:padding="5dp"/>
+                <TextView android:text="6.5" android:textColor="#FF0000" android:padding="5dp" android:textStyle="bold"/>
+            </TableRow>
+
+            <TableRow android:padding="8dp" android:background="#EEEEEE">
+                <TextView android:text="DS118" android:padding="5dp"/>
+                <TextView android:text="Đại số tuyến tính" android:padding="5dp"/>
+                <TextView android:text="8.0" android:textColor="#FF0000" android:padding="5dp" android:textStyle="bold"/>
+            </TableRow>
+
+        </TableLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btnBackHomeKQ"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Quay về trang chủ"
+        android:backgroundTint="#673AB7"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:textSize="16sp" />
+
+</LinearLayout>

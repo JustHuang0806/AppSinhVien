@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:shrinkColumns="1"
+        android:stretchColumns="0,2">
+        <TableRow android:background="#673AB7" android:padding="12dp">
+            <TextView android:text="Mã môn" android:textColor="#FFF" android:textStyle="bold" android:padding="5dp" android:textSize="16sp"/>
+            <TextView android:text="Tên môn học" android:textColor="#FFF" android:textStyle="bold" android:padding="5dp" android:textSize="16sp"/>
+            <TextView
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="Đăng ký"
+                android:textColor="#FFF"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </TableRow>
+    </TableLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fadeScrollbars="false"
+        android:background="#FFFFFF">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:shrinkColumns="1"
+            android:stretchColumns="0,2">
+
+            <TableRow android:padding="10dp" android:background="#EEEEEE">
+                <TextView android:text="MOB201" android:padding="5dp"/>
+                <TextView android:text="Mạng máy tính" android:padding="5dp"/>
+                <CheckBox android:id="@+id/cb_mob201" android:layout_gravity="center"/>
+            </TableRow>
+
+            <TableRow android:padding="10dp">
+                <TextView android:text="MOB204" android:padding="5dp"/>
+                <TextView android:text="Lập trình di động" android:padding="5dp"/>
+                <CheckBox android:id="@+id/cb_mob204" android:layout_gravity="center"/>
+            </TableRow>
+
+            <TableRow android:padding="10dp" android:background="#EEEEEE">
+                <TextView android:text="MOB108" android:padding="5dp"/>
+                <TextView android:text="Nhập môn lập trình" android:padding="5dp"/>
+                <CheckBox android:id="@+id/cb_mob108" android:layout_gravity="center"/>
+            </TableRow>
+
+            <TableRow android:padding="10dp">
+                <TextView android:text="MOB306" android:padding="5dp"/>
+                <TextView android:text="Lập trình web" android:padding="5dp"/>
+                <CheckBox android:id="@+id/cb_mob306" android:layout_gravity="center"/>
+            </TableRow>
+
+            <TableRow android:padding="10dp" android:background="#EEEEEE">
+                <TextView android:text="TA111" android:padding="5dp"/>
+                <TextView android:text="Tiếng Anh chuyên ngành" android:padding="5dp"/>
+                <CheckBox android:id="@+id/cb_ta111" android:layout_gravity="center"/>
+            </TableRow>
+
+            <TableRow android:padding="10dp">
+                <TextView android:text="MOB134" android:padding="5dp"/>
+                <TextView android:text="Dự án tốt nghiệp" android:padding="5dp"/>
+                <CheckBox android:id="@+id/cb_mob134" android:layout_gravity="center"/>
+            </TableRow>
+
+            <TableRow android:padding="10dp" android:background="#EEEEEE">
+                <TextView android:text="MOD110" android:padding="5dp"/>
+                <TextView android:text="Thiết Kế Đồ Họa" android:padding="5dp"/>
+                <CheckBox android:id="@+id/cb_mod110" android:layout_gravity="center"/>
+            </TableRow>
+
+            <TableRow android:padding="10dp">
+                <TextView android:text="TH110" android:padding="5dp"/>
+                <TextView android:text="Triết học Mác - Lênin" android:padding="5dp"/>
+                <CheckBox android:id="@+id/cb_th110" android:layout_gravity="center"/>
+            </TableRow>
+
+            <TableRow android:padding="10dp" android:background="#EEEEEE">
+                <TextView android:text="DS118" android:padding="5dp"/>
+                <TextView android:text="Đại số tuyến tính" android:padding="5dp"/>
+                <CheckBox android:id="@+id/cb_ds118" android:layout_gravity="center"/>
+            </TableRow>
+
+        </TableLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btnBackHome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Quay về trang chủ"
+        android:backgroundTint="#673AB7"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:textSize="16sp" />
+
+</LinearLayout>

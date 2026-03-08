@@ -1,4 +1,4 @@
-package com.example.appsinhvien_kotlin
+package com.example.viewsinhvien
 
 import android.os.Bundle
 import android.widget.Button

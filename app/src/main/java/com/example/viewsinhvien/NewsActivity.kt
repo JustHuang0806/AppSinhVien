@@ -1,4 +1,4 @@
-package com.example.appsinhvien_kotlin
+package com.example.viewsinhvien
 
 import android.graphics.Color
 import android.os.Bundle

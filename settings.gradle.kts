@@ -19,5 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "ViewSinhVien"
+rootProject.name = "ADMINSV"
 include(":app")
+ 

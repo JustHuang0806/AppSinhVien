@@ -34,13 +34,13 @@ class ScheduleActivity : AppCompatActivity() {
         val dsNamHoc = listOf("2022-2023", "2023-2024", "2024-2025", "2025-2026")
         val adpNam = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, dsNamHoc)
         spnNamHoc.adapter = adpNam
-        spnNamHoc.setSelection(3) // Mac dinh chon 2025-2026
+        spnNamHoc.setSelection(3) // Mặc định 2025-2026
 
         val dsHocKy = listOf("Học kỳ 1", "Học kỳ 2", "Học kỳ 3")
         val adpHocKy = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, dsHocKy)
         spnHocKy.adapter = adpHocKy
 
-        // Nếu chọn học kì 1 sẽ bắt đầu từ tuần 1, hc kì 2 từ tuần 13 và học kì 3 từ tuần 25
+        // Nếu chọn học kì 1 sẽ bắt đầu từ tuần 1, hc kì 2 từ tuần 18 và học kì 3 từ tuần 37
         spnHocKy.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
                 capNhatDanhSachTuan(position + 1)
@@ -63,8 +63,6 @@ class ScheduleActivity : AppCompatActivity() {
 
     private fun capNhatBangTheoLoc() {
         val namHoc = spnNamHoc.selectedItem.toString()
-
-        // Xoa cac hang cu (tru hang tieu de)
         val count = bangTKB.childCount
         if (count > 1) {
             bangTKB.removeViews(1, count - 1)
@@ -72,11 +70,10 @@ class ScheduleActivity : AppCompatActivity() {
 
         // NOTE LAI TUNG NAM DE THEM MON O DAY
         when (namHoc) {
-            "2022-2023" -> { /* Them mon cho nam 2022-2023 tai day */ }
-            "2023-2024" -> { /* Them mon cho nam 2023-2024 tai day */ }
-            "2024-2025" -> { /* Them mon cho nam 2024-2025 tai day */ }
+            "2022-2023" -> {  }
+            "2023-2024" -> {  }
+            "2024-2025" -> {  }
             "2025-2026" -> {
-                // Mau du lieu y het trong anh
                 themHangVaoBang("1", "252121015460", "Thuật toán đồ thị", "4", "Hai", "7-9", "PM20", "Nguyễn Thị Phương Trang")
                 themHangVaoBang("2", "252123038402", "Lập trình trên thiết bị di động", "4", "Hai", "10-12", "B46", "Thái Thị Thanh Thảo")
             }

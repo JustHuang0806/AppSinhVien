@@ -1,10 +1,161 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileActivity">
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:id="@+id/hang_dau_header"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center_vertical"
+        android:background="#003366"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="45dp"
+            android:src="@drawable/ic_logo_huflit" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="Trường Đại Học Ngoại Ngữ &amp; Tin Học - HUFLIT"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/hang_dau_header"
+        app:layout_constraintBottom_toTopOf="@id/footer_lien_he">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#004080"
+                android:padding="8dp"
+                android:text="Thông tin sinh viên"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="15dp">
+
+                <ImageView
+                    android:id="@+id/anh_dai_dien"
+                    android:layout_width="120dp"
+                    android:layout_height="150dp"
+                    android:scaleType="centerInside"
+                    android:src="@android:drawable/ic_menu_gallery" /> <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="10dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Thông tin khóa học" android:textColor="#8B0000" android:textStyle="bold" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Khóa học: Đại học chính quy" android:layout_marginTop="5dp"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Niên khóa: 2022 - 2026" android:layout_marginTop="5dp"/>
+            </LinearLayout>
+            </LinearLayout>
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:layout_marginTop="10dp">
+
+                <TextView android:text="Mã SV: " />
+                <EditText android:id="@+id/edit_msv" android:layout_width="wrap_content" android:hint="Nhap ma so" android:background="@null" android:minWidth="150dp"/>
+
+                <TextView android:text="Họ tên: " />
+                <EditText android:id="@+id/edit_hoten" android:layout_width="wrap_content" android:hint="Nhap ho ten" android:background="@null"/>
+
+                <TextView android:text="Giới tính: " />
+                <EditText android:id="@+id/edit_gioitinh" android:layout_width="wrap_content" android:hint="Nam/Nu" android:background="@null"/>
+
+                <TextView android:text="CCCD: " />
+                <EditText android:id="@+id/edit_cccd" android:layout_width="wrap_content" android:hint="So CCCD" android:background="@null"/>
+
+                <TextView android:text="Dân tộc: " />
+                <EditText android:id="@+id/edit_dantoc" android:layout_width="wrap_content" android:hint="Kinh..." android:background="@null"/>
+
+                <TextView android:text="Quốc gia: " />
+                <EditText android:id="@+id/edit_quocgia" android:layout_width="wrap_content" android:hint="Viet Nam" android:background="@null"/>
+
+                <TextView android:text="Di động: " />
+                <EditText android:id="@+id/edit_didong" android:layout_width="wrap_content" android:hint="SDT ca nhan" android:background="@null"/>
+
+                <TextView android:text="Email cá nhân: " />
+                <EditText android:id="@+id/edit_email_canhan" android:layout_width="wrap_content" android:hint="Email cua ban" android:background="@null" android:textSize="12sp"/>
+            </GridLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Thông tin người liên hệ"
+                android:textColor="#8B0000"
+                android:textStyle="bold" />
+
+            <EditText android:id="@+id/edit_ten_nguoi_lh" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Ho ten nguoi lien he" android:background="@null" android:padding="5dp"/>
+            <EditText android:id="@+id/edit_sdt_nguoi_lh" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="So dien thoai nguoi lien he" android:background="@null" android:padding="5dp"/>
+            <EditText android:id="@+id/edit_dc_nguoi_lh" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Dia chi nguoi lien he" android:background="@null" android:padding="5dp"/>
+
+            <Button
+                android:id="@+id/btn_cap_nhat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="#003366"
+                android:text="Cập nhật thông tin"
+                android:textColor="#FFFFFF" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/footer_lien_he"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#000080"
+        android:orientation="vertical"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+            <ImageView android:layout_width="16dp" android:layout_height="16dp" android:src="@android:drawable/ic_menu_call" app:tint="#FFFFFF" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp" android:text="(+84 28) 3863 2052" android:textColor="#FFFFFF" android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="4dp"
+            android:gravity="center_vertical">
+            <ImageView android:layout_width="16dp" android:layout_height="16dp" android:src="@android:drawable/ic_dialog_email" app:tint="#FFFFFF" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp" android:text="contact@huflit.edu.vn" android:textColor="#FFFFFF" android:textSize="12sp" />
+        </LinearLayout>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

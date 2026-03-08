@@ -6,7 +6,9 @@ import android.transition.TransitionManager
 import android.view.View
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
+import com.example.appsinhvien_kotlin.NewsActivity
 import com.google.android.material.button.MaterialButton
+import kotlin.jvm.java
 
 class MainMenuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,16 +42,16 @@ class MainMenuActivity : AppCompatActivity() {
 
         // Chuyển trang cho các nút
         findViewById<MaterialButton>(R.id.btnSubject).setOnClickListener {
-            startActivity(Intent(this, NewsActivity::class.java))
+            startActivity(Intent(this, SubjectActivity::class.java))
         }
         findViewById<MaterialButton>(R.id.btnSchedule).setOnClickListener {
-            startActivity(Intent(this, NewsActivity::class.java))
+            startActivity(Intent(this, ScheduleActivity::class.java))
         }
         findViewById<MaterialButton>(R.id.btnEconomy).setOnClickListener {
-            startActivity(Intent(this, NewsActivity::class.java))
+            startActivity(Intent(this, EconomyActivity::class.java))
         }
         findViewById<MaterialButton>(R.id.btnScore).setOnClickListener {
-            startActivity(Intent(this, NewsActivity::class.java))
+            startActivity(Intent(this, ScoreActivity::class.java))
         }
         findViewById<MaterialButton>(R.id.btnProfile).setOnClickListener {
             startActivity(Intent(this, ProfileActivity::class.java))

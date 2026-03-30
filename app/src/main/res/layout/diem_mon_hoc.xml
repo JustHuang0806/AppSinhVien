@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@drawable/border_table"
+    android:gravity="center_vertical"
+    android:padding="4dp">
+
+    <TextView
+        android:id="@+id/tv_stt"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="1"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/tv_ma_mon_hoc"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="1010443"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/tv_ten_mon"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:paddingStart="4dp"
+        android:text="Triết học Mác - Lênin"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/tv_tin_chi"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="3.0"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/tv_diem_he_4"
+        android:layout_width="45dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="2.50"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/tv_diem_chu"
+        android:layout_width="55dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="C+"
+        android:textSize="12sp" />
+
+    <ImageView
+        android:id="@+id/iv_ket_qua"
+        android:layout_width="30dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_tichxanh"
+        android:scaleType="fitCenter" />
+
+    <TextView
+        android:id="@+id/tv_btn_chi_tiet"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Xem"
+        android:textColor="#3366CC"
+        android:textStyle="bold"
+        android:textSize="12sp"
+        android:clickable="true"
+        android:focusable="true" />
+
+</LinearLayout>

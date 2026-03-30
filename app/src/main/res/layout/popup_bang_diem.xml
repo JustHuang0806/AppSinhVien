@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/tv_detail_subject_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#003366"
+        android:padding="10dp"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#FFCC66"
+        android:padding="8dp">
+        <TextView android:layout_width="0dp" android:layout_weight="2" android:layout_height="wrap_content" android:text="Tên thành phần" android:textStyle="bold"/>
+        <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Điểm" android:gravity="center" android:textStyle="bold"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+        <TextView android:layout_width="0dp" android:layout_weight="2" android:layout_height="wrap_content" android:text="Điểm Thi giữa học phần"/>
+        <TextView android:id="@+id/tv_midterm_score" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:gravity="center" android:text="0.0"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+        <TextView android:layout_width="0dp" android:layout_weight="2" android:layout_height="wrap_content" android:text="Điểm thi kết thúc học phần"/>
+        <TextView android:id="@+id/tv_final_score" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:gravity="center" android:text="0.0"/>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnBackAdmin"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="5dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@android:color/transparent"
+        android:gravity="center"
+        android:padding="0dp"
+        android:text="←"
+        android:textColor="#673AB7"
+        android:textSize="35sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/btnBackAdmin"
+        android:layout_alignBottom="@id/btnBackAdmin"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="-8dp"
+        android:layout_toEndOf="@id/btnBackAdmin"
+        android:gravity="center_vertical"
+        android:text="TIN TỨC"
+        android:textColor="#333333"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/btnPostNews"
+        android:layout_below="@id/btnBackAdmin"
+        android:layout_margin="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/editTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:drawable/edit_text"
+                android:hint="Tiêu đề tin tức"
+                android:layout_marginBottom="15dp"
+                android:padding="15dp" />
+
+            <EditText
+                android:id="@+id/editContent"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:background="@android:drawable/edit_text"
+                android:gravity="top"
+                android:hint="Nội dung chi tiết..."
+                android:padding="15dp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btnPostNews"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        android:backgroundTint="#673AB7"
+        android:text="ĐĂNG TIN"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+</RelativeLayout>

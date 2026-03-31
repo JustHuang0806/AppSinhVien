@@ -1,0 +1,2344 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F9F9F9">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Header -->
+        <!-- Header + Back -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="16dp">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnBackAdmin"
+                android:layout_width="46dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:padding="0dp"
+                android:text="←"
+                android:textColor="#673AB7"
+                android:textSize="35sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tài Chính Sinh Viên"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#673AB7"/>
+        </LinearLayout>
+
+        <!-- ===== Học Kỳ 1 ===== -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#FFFFFF"
+            android:elevation="4dp"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Học Kỳ 1"
+                android:textColor="#673AB7"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- Table Header -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#F3E5F5"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp">
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="Mã MH"
+                    android:textStyle="bold"
+                    android:textColor="#6A1B9A"
+                    android:gravity="center"/>
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="Tên môn học"
+                    android:textStyle="bold"
+                    android:textColor="#6A1B9A"
+                    android:textSize="14sp"
+                    android:gravity="center_vertical|start"
+                    android:paddingStart="8dp"
+                    android:singleLine="false"
+                    android:ellipsize="none"/>
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:text="TC"
+                    android:textStyle="bold"
+                    android:textColor="#6A1B9A"
+                    android:gravity="center"/>
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="Học phí"
+                    android:textStyle="bold"
+                    android:textColor="#6A1B9A"
+                    android:gravity="center"
+                    android:paddingStart="8dp"/>
+            </LinearLayout>
+
+            <!-- Môn học HK1 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp">
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="100"
+                    android:gravity="center"/>
+
+                <!-- FIX -->
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="Triết học Mác - Lênin"
+                    android:gravity="center_vertical|start"
+                    android:paddingStart="8dp"
+                    android:singleLine="false"
+                    android:ellipsize="none"/>
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:text="3"
+                    android:gravity="center"/>
+
+                <!-- FIX -->
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="3.900.000 VND"
+                    android:gravity="center"
+                    android:paddingStart="8dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#F9F9F9"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp">
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="101"
+                    android:gravity="center"/>
+
+                <!-- FIX -->
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="Tiếng Anh Cơ Bản 1"
+                    android:gravity="center_vertical|start"
+                    android:paddingStart="8dp"
+                    android:singleLine="false"
+                    android:ellipsize="none"/>
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:text="4"
+                    android:gravity="center"/>
+
+                <!-- FIX -->
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="5.400.000 VND"
+                    android:gravity="center"
+                    android:paddingStart="8dp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp">
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="102"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="Nhập môn CNTT"
+                    android:gravity="center_vertical|start"
+                    android:paddingStart="8dp"
+                    android:singleLine="false"
+                    android:ellipsize="none"/>
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:text="2"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="2.600.000 VND"
+                    android:gravity="center"
+                    android:paddingStart="8dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#F9F9F9"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp">
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="103"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="Nhập môn Lập Trình"
+                    android:gravity="center_vertical|start"
+                    android:paddingStart="8dp"
+                    android:singleLine="false"
+                    android:ellipsize="none"/>
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:text="4"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="5.400.000 VND"
+                    android:gravity="center"
+                    android:paddingStart="8dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp">
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="127" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="Toán rời rạc"
+                    android:gravity="center_vertical|start"
+                    android:paddingStart="8dp"
+                    android:singleLine="false"
+                    android:ellipsize="none"/>
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:text="3"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="3.900.000 VND"
+                    android:gravity="center"
+                    android:paddingStart="8dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#F9F9F9"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp">
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="105"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="Toán giải tích"
+                    android:gravity="center_vertical|start"
+                    android:paddingStart="8dp"
+                    android:singleLine="false"
+                    android:ellipsize="none"/>
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="4" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="3.900.000 VND"
+                    android:gravity="center"
+                    android:paddingStart="8dp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- ===== Học Kỳ 2 ===== -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#FFFFFF"
+            android:elevation="4dp"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Học Kỳ 2"
+                android:textColor="#673AB7"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- Table Header -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#F3E5F5"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp">
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="Mã MH"
+                    android:textStyle="bold"
+                    android:textColor="#6A1B9A"
+                    android:gravity="center"/>
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="Tên môn học"
+                    android:textStyle="bold"
+                    android:textColor="#6A1B9A"
+                    android:textSize="14sp"
+                    android:gravity="center_vertical|start"
+                    android:paddingStart="8dp"
+                    android:singleLine="false"
+                    android:ellipsize="none"/>
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="TC"
+                    android:textColor="#6A1B9A"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="Học phí"
+                    android:textStyle="bold"
+                    android:textColor="#6A1B9A"
+                    android:gravity="center"
+                    android:paddingStart="8dp"/>
+            </LinearLayout>
+
+            <!-- Môn học HK2 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp">
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="106"
+                    android:gravity="center"/>
+
+                <!-- FIX -->
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="Giáo dục quốc phòng"
+                    android:gravity="center_vertical|start"
+                    android:paddingStart="8dp"
+                    android:singleLine="false"
+                    android:ellipsize="none"/>
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:text="3"
+                    android:gravity="center"/>
+
+                <!-- FIX -->
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="3.900.000 VND"
+                    android:gravity="center"
+                    android:paddingStart="8dp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#F9F9F9"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp">
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="107"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="Kinh tế chính trị Mác - Lê Nin"
+                    android:gravity="center_vertical|start"
+                    android:paddingStart="8dp"
+                    android:singleLine="false"
+                    android:ellipsize="none"/>
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:text="2"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="2.600.000 VND"
+                    android:gravity="center"
+                    android:paddingStart="8dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp">
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="108"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="Tiếng Anh Cơ Bản 2"
+                    android:gravity="center_vertical|start"
+                    android:paddingStart="8dp"
+                    android:singleLine="false"
+                    android:ellipsize="none"/>
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:text="4"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="5.400.000 VND"
+                    android:gravity="center"
+                    android:paddingStart="8dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#F9F9F9"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp">
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="109"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="Cơ sở dữ liệu"
+                    android:gravity="center_vertical|start"
+                    android:paddingStart="8dp"
+                    android:singleLine="false"
+                    android:ellipsize="none"/>
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:text="4"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="5.400.000 VND"
+                    android:gravity="center"
+                    android:paddingStart="8dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp">
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="110"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="Đại số tuyến tính"
+                    android:gravity="center_vertical|start"
+                    android:paddingStart="8dp"
+                    android:singleLine="false"
+                    android:ellipsize="none"/>
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:text="3"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="3.900.000 VND"
+                    android:gravity="center"
+                    android:paddingStart="8dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#F9F9F9"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp">
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="111"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="Kỹ thuật lập trình"
+                    android:gravity="center_vertical|start"
+                    android:paddingStart="8dp"
+                    android:singleLine="false"
+                    android:ellipsize="none"/>
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:text="4"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="5.400.000 VND"
+                    android:gravity="center"
+                    android:paddingStart="8dp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+        <!-- ===== Học Kỳ 3 ===== -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#FFFFFF"
+            android:elevation="4dp"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Học Kỳ 3"
+                android:textColor="#673AB7"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- Header bảng -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#F3E5F5"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp">
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="Mã MH"
+                    android:textStyle="bold"
+                    android:textColor="#6A1B9A"
+                    android:gravity="center"/>
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="Tên môn học"
+                    android:textStyle="bold"
+                    android:textColor="#6A1B9A"
+                    android:textSize="14sp"
+                    android:gravity="center_vertical|start"
+                    android:paddingStart="8dp"
+                    android:singleLine="false"
+                    android:ellipsize="none"/>
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="TC"
+                    android:textColor="#6A1B9A"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="Học phí"
+                    android:textStyle="bold"
+                    android:textColor="#6A1B9A"
+                    android:gravity="center"
+                    android:paddingStart="8dp"/>
+            </LinearLayout>
+
+            <!-- Môn học HK3 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp">
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="112" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:ellipsize="none"
+                    android:gravity="center_vertical|start"
+                    android:paddingStart="8dp"
+                    android:singleLine="false"
+                    android:text="Chủ nghĩa xã hội khoa học " />
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="2" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:gravity="center"
+                    android:paddingStart="8dp"
+                    android:text="2.600.000 VND" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#F9F9F9"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp">
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="113" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:ellipsize="none"
+                    android:gravity="center_vertical|start"
+                    android:paddingStart="8dp"
+                    android:singleLine="false"
+                    android:text="Tiếng Anh cơ bản " />
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:text="4"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="5.400.000 VND"
+                    android:gravity="center"
+                    android:paddingStart="8dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp">
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="114" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:ellipsize="none"
+                    android:gravity="center_vertical|start"
+                    android:paddingStart="8dp"
+                    android:singleLine="false"
+                    android:text="Cấu trúc dữ liệu và giải thuật " />
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="4" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:gravity="center"
+                    android:paddingStart="8dp"
+                    android:text="5.400.000 VND" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#F9F9F9"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp">
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="115" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:ellipsize="none"
+                    android:gravity="center_vertical|start"
+                    android:paddingStart="8dp"
+                    android:singleLine="false"
+                    android:text="Hệ điều hành " />
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="4" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:gravity="center"
+                    android:paddingStart="8dp"
+                    android:text="5.400.000 VND" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp">
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="116" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:ellipsize="none"
+                    android:gravity="center_vertical|start"
+                    android:paddingStart="8dp"
+                    android:singleLine="false"
+                    android:text="Kỹ năng mềm " />
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="2" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:gravity="center"
+                    android:paddingStart="8dp"
+                    android:text="2.600.000 VND" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#F9F9F9"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp">
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="117" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:ellipsize="none"
+                    android:gravity="center_vertical|start"
+                    android:paddingStart="8dp"
+                    android:singleLine="false"
+                    android:text="Lập trình web " />
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="4" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:gravity="center"
+                    android:paddingStart="8dp"
+                    android:text="5.400.000 VND" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ===== Học Kỳ 4 ===== -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#FFFFFF"
+            android:elevation="4dp"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Học Kỳ 4"
+                android:textColor="#673AB7"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- Header bảng -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#F3E5F5"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp">
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="Mã MH"
+                    android:textStyle="bold"
+                    android:textColor="#6A1B9A"
+                    android:gravity="center"/>
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="Tên môn học"
+                    android:textStyle="bold"
+                    android:textColor="#6A1B9A"
+                    android:textSize="14sp"
+                    android:gravity="center_vertical|start"
+                    android:paddingStart="8dp"
+                    android:singleLine="false"
+                    android:ellipsize="none"/>
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="TC"
+                    android:textColor="#6A1B9A"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="Học phí"
+                    android:textStyle="bold"
+                    android:textColor="#6A1B9A"
+                    android:gravity="center"
+                    android:paddingStart="8dp"/>
+            </LinearLayout>
+
+            <!-- Môn học HK4 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp">
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="118"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="Đại cương pháp luật Việt Nam"
+                    android:gravity="center_vertical|start"
+                    android:paddingStart="8dp"
+                    android:singleLine="false"
+                    android:ellipsize="none"/>
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:text="2"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="2.600.000 VND"
+                    android:gravity="center"
+                    android:paddingStart="8dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#F9F9F9"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp">
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="119"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="Tư tưởng Hồ Chí Minh"
+                    android:gravity="center_vertical|start"
+                    android:paddingStart="8dp"
+                    android:singleLine="false"
+                    android:ellipsize="none"/>
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:text="2"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="2.600.000 VND"
+                    android:gravity="center"
+                    android:paddingStart="8dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp">
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="120"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="Lý thuyết đồ thị"
+                    android:gravity="center_vertical|start"
+                    android:paddingStart="8dp"
+                    android:singleLine="false"
+                    android:ellipsize="none"/>
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:text="3"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="3.900.000 VND"
+                    android:gravity="center"
+                    android:paddingStart="8dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#F9F9F9"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp">
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="121"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="Mạng Máy Tính"
+                    android:gravity="center_vertical|start"
+                    android:paddingStart="8dp"
+                    android:singleLine="false"
+                    android:ellipsize="none"/>
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:text="4"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="5.400.000 VND"
+                    android:gravity="center"
+                    android:paddingStart="8dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp">
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="122"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="Lập trình trên thiết bị di động"
+                    android:gravity="center_vertical|start"
+                    android:paddingStart="8dp"
+                    android:singleLine="false"
+                    android:ellipsize="none"/>
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:text="4"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="5.400.000 VND"
+                    android:gravity="center"
+                    android:paddingStart="8dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#F9F9F9"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp">
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="123"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="Phân tích và thiết kế phần mềm"
+                    android:gravity="center_vertical|start"
+                    android:paddingStart="8dp"
+                    android:singleLine="false"
+                    android:ellipsize="none"/>
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:text="4"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="5.400.000 VND"
+                    android:gravity="center"
+                    android:paddingStart="8dp"/>
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+    <!-- ===== Học Kỳ hè Năm 2 ===== -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#FFFFFF"
+        android:elevation="4dp"
+        android:padding="16dp"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Học Kỳ hè Năm 2"
+            android:textColor="#673AB7"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Header bảng -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#F3E5F5"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp">
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="Mã MH"
+                android:textStyle="bold"
+                android:textColor="#6A1B9A"
+                android:gravity="center"/>
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:text="Tên môn học"
+                android:textStyle="bold"
+                android:textColor="#6A1B9A"
+                android:textSize="14sp"
+                android:gravity="center_vertical|start"
+                android:paddingStart="8dp"
+                android:singleLine="false"
+                android:ellipsize="none"/>
+
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="TC"
+                android:textColor="#6A1B9A"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:text="Học phí"
+                android:textStyle="bold"
+                android:textColor="#6A1B9A"
+                android:gravity="center"
+                android:paddingStart="8dp"/>
+        </LinearLayout>
+        <!-- Môn học HK hè năm 2 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp">
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="124 " />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:ellipsize="none"
+                android:gravity="center_vertical|start"
+                android:paddingStart="8dp"
+                android:singleLine="false"
+                android:text="Lịch sử Đảng cộng sản Việt Nam " />
+
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="2" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:gravity="center"
+                android:paddingStart="8dp"
+                android:text="2.600.000 VND" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#F9F9F9"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp">
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="125" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:ellipsize="none"
+                android:gravity="center_vertical|start"
+                android:paddingStart="8dp"
+                android:singleLine="false"
+                android:text="Xác suất thống kê " />
+
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:text="3"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:text="3.900.000 VND"
+                android:gravity="center"
+                android:paddingStart="8dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp">
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="126" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:ellipsize="none"
+                android:gravity="center_vertical|start"
+                android:paddingStart="8dp"
+                android:singleLine="false"
+                android:text="Công nghệ phần mềm " />
+
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:text="3"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:text="3.900.000 VND"
+                android:gravity="center"
+                android:paddingStart="8dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#F9F9F9"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp">
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="127" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:text="Cơ sở dữ liệu nâng cao"
+                android:gravity="center_vertical|start"
+                android:paddingStart="8dp"
+                android:singleLine="false"
+                android:ellipsize="none"/>
+
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:text="4"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:text="5.400.000 VND"
+                android:gravity="center"
+                android:paddingStart="8dp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#F9F9F9"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp">
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="128" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:text="Thiết kế Giao diện"
+                android:gravity="center_vertical|start"
+                android:paddingStart="8dp"
+                android:singleLine="false"
+                android:ellipsize="none"/>
+
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:text="4"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:text="5.400.000 VND"
+                android:gravity="center"
+                android:paddingStart="8dp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#F9F9F9"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp">
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="129" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:text="Lập trình Java (tự chọn)"
+                android:gravity="center_vertical|start"
+                android:paddingStart="8dp"
+                android:singleLine="false"
+                android:ellipsize="none"/>
+
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:text="4"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:text="5.400.000 VND"
+                android:gravity="center"
+                android:paddingStart="8dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+    <!-- ===== Học Kỳ 5 ===== -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#FFFFFF"
+        android:elevation="4dp"
+        android:padding="16dp"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Học Kỳ 5"
+            android:textColor="#673AB7"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Header bảng -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#F3E5F5"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp">
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="Mã MH"
+                android:textStyle="bold"
+                android:textColor="#6A1B9A"
+                android:gravity="center"/>
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:text="Tên môn học"
+                android:textStyle="bold"
+                android:textColor="#6A1B9A"
+                android:textSize="14sp"
+                android:gravity="center_vertical|start"
+                android:paddingStart="8dp"
+                android:singleLine="false"
+                android:ellipsize="none"/>
+
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="TC"
+                android:textColor="#6A1B9A"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:text="Học phí"
+                android:textStyle="bold"
+                android:textColor="#6A1B9A"
+                android:gravity="center"
+                android:paddingStart="8dp"/>
+        </LinearLayout>
+        <!-- Môn học HK5 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp">
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="130"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:text="Kiểm định chất lượng phần mềm"
+                android:gravity="center_vertical|start"
+                android:paddingStart="8dp"
+                android:singleLine="false"
+                android:ellipsize="none"/>
+
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:text="4"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:text="5.400.000 VND"
+                android:gravity="center"
+                android:paddingStart="8dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#F9F9F9"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp">
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="131"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:text="Đồ án phần mềm"
+                android:gravity="center_vertical|start"
+                android:paddingStart="8dp"
+                android:singleLine="false"
+                android:ellipsize="none"/>
+
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:text="3"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:text="3.900.000 VND"
+                android:gravity="center"
+                android:paddingStart="8dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp">
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="132"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:text="Tiếng anh chuyên ngành 1"
+                android:gravity="center_vertical|start"
+                android:paddingStart="8dp"
+                android:singleLine="false"
+                android:ellipsize="none"/>
+
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:text="3"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:text="3.900.000 VND"
+                android:gravity="center"
+                android:paddingStart="8dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#F9F9F9"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp">
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="133"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:text="Công nghệ phần mềm nâng cao (Tự chọn)"
+                android:gravity="center_vertical|start"
+                android:paddingStart="8dp"
+                android:singleLine="false"
+                android:ellipsize="none"/>
+
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:text="4"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:text="5.400.000 VND"
+                android:gravity="center"
+                android:paddingStart="8dp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp">
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="135"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:text="Giáo dục thể chất (Tự chọn)"
+                android:gravity="center_vertical|start"
+                android:paddingStart="8dp"
+                android:singleLine="false"
+                android:ellipsize="none"/>
+
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:text="4"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:text="5.400.000 VND"
+                android:gravity="center"
+                android:paddingStart="8dp"/>
+        </LinearLayout>
+        <!-- ===== Học Kỳ 6 ===== -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#FFFFFF"
+            android:elevation="4dp"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Học Kỳ 6"
+                android:textColor="#673AB7"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- Header bảng -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#F3E5F5"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp">
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="Mã MH"
+                    android:textStyle="bold"
+                    android:textColor="#6A1B9A"
+                    android:gravity="center"/>
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="Tên môn học"
+                    android:textStyle="bold"
+                    android:textColor="#6A1B9A"
+                    android:textSize="14sp"
+                    android:gravity="center_vertical|start"
+                    android:paddingStart="8dp"
+                    android:singleLine="false"
+                    android:ellipsize="none"/>
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="TC"
+                    android:textColor="#6A1B9A"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="Học phí"
+                    android:textStyle="bold"
+                    android:textColor="#6A1B9A"
+                    android:gravity="center"
+                    android:paddingStart="8dp"/>
+            </LinearLayout>
+            <!-- Môn học HK6 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp">
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="136"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="Tiếng Anh chuyên ngành 2"
+                    android:gravity="center_vertical|start"
+                    android:paddingStart="8dp"
+                    android:singleLine="false"
+                    android:ellipsize="none"/>
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:text="3"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="3.900.000 VND"
+                    android:gravity="center"
+                    android:paddingStart="8dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#F9F9F9"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp">
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="137"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="Mẫu Thiết Kế Phần Mềm"
+                    android:gravity="center_vertical|start"
+                    android:paddingStart="8dp"
+                    android:singleLine="false"
+                    android:ellipsize="none"/>
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:text="4"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="5.400.000 VND"
+                    android:gravity="center"
+                    android:paddingStart="8dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp">
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="138"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="Bảo đảm chất lượng phần mềm"
+                    android:gravity="center_vertical|start"
+                    android:paddingStart="8dp"
+                    android:singleLine="false"
+                    android:ellipsize="none"/>
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:text="4"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="5.400.000 VND"
+                    android:gravity="center"
+                    android:paddingStart="8dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#F9F9F9"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp">
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="139"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="Internet vạn vật"
+                    android:gravity="center_vertical|start"
+                    android:paddingStart="8dp"
+                    android:singleLine="false"
+                    android:ellipsize="none"/>
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:text="4"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="5.400.000 VND"
+                    android:gravity="center"
+                    android:paddingStart="8dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp">
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="140"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="Thương mại điện tử"
+                    android:gravity="center_vertical|start"
+                    android:paddingStart="8dp"
+                    android:singleLine="false"
+                    android:ellipsize="none"/>
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:text="4"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="5.400.000 VND"
+                    android:gravity="center"
+                    android:paddingStart="8dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#F9F9F9"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp">
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="141"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="Giáo dục thể chất 2 (Tự chọn)"
+                    android:gravity="center_vertical|start"
+                    android:paddingStart="8dp"
+                    android:singleLine="false"
+                    android:ellipsize="none"/>
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:text="3"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="3.900.000 VND"
+                    android:gravity="center"
+                    android:paddingStart="8dp"/>
+            </LinearLayout>
+        </LinearLayout>
+        <!-- ===== Học Kỳ hè Năm 3 ===== -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#FFFFFF"
+            android:elevation="4dp"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Học Kỳ hè Năm 3"
+                android:textColor="#673AB7"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- Header bảng -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#F3E5F5"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp">
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="Mã MH"
+                    android:textStyle="bold"
+                    android:textColor="#6A1B9A"
+                    android:gravity="center"/>
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="Tên môn học"
+                    android:textStyle="bold"
+                    android:textColor="#6A1B9A"
+                    android:textSize="14sp"
+                    android:gravity="center_vertical|start"
+                    android:paddingStart="8dp"
+                    android:singleLine="false"
+                    android:ellipsize="none"/>
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="TC"
+                    android:textColor="#6A1B9A"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="Học phí"
+                    android:textStyle="bold"
+                    android:textColor="#6A1B9A"
+                    android:gravity="center"
+                    android:paddingStart="8dp"/>
+            </LinearLayout>
+            <!-- Môn học HK Hè năm 3 -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:paddingTop="6dp" android:paddingBottom="6dp">
+                <TextView android:layout_width="50dp" android:layout_height="wrap_content" android:text="142" android:gravity="center"/>
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1.5" android:text="Khởi nghiệp" android:gravity="center_vertical|start" android:paddingStart="8dp" android:singleLine="false" android:ellipsize="none"/>
+                <TextView android:layout_width="40dp" android:layout_height="wrap_content" android:text="2" android:gravity="center"/>
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1.5" android:text="2.600.000 VND" android:gravity="center" android:paddingStart="8dp"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:background="#F9F9F9" android:paddingTop="6dp" android:paddingBottom="6dp">
+                <TextView android:layout_width="50dp" android:layout_height="wrap_content" android:text="143" android:gravity="center"/>
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1.5" android:text="Quản lý dự án phần mềm" android:gravity="center_vertical|start" android:paddingStart="8dp" android:singleLine="false" android:ellipsize="none"/>
+                <TextView android:layout_width="40dp" android:layout_height="wrap_content" android:text="4" android:gravity="center"/>
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1.5" android:text="5.400.000 VND" android:gravity="center" android:paddingStart="8dp"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:paddingTop="6dp" android:paddingBottom="6dp">
+                <TextView android:layout_width="50dp" android:layout_height="wrap_content" android:text="144" android:gravity="center"/>
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1.5" android:text="Khóa luận tốt nghiệp" android:gravity="center_vertical|start" android:paddingStart="8dp" android:singleLine="false" android:ellipsize="none"/>
+                <TextView android:layout_width="40dp" android:layout_height="wrap_content" android:text="6" android:gravity="center"/>
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1.5" android:text="7.800.000 VND" android:gravity="center" android:paddingStart="8dp"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:background="#F9F9F9" android:paddingTop="6dp" android:paddingBottom="6dp">
+                <TextView android:layout_width="50dp" android:layout_height="wrap_content" android:text="145" android:gravity="center"/>
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1.5" android:text="Hệ thống thông tin quản lý" android:gravity="center_vertical|start" android:paddingStart="8dp" android:singleLine="false" android:ellipsize="none"/>
+                <TextView android:layout_width="40dp" android:layout_height="wrap_content" android:text="4" android:gravity="center"/>
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1.5" android:text="5.400.000 VND" android:gravity="center" android:paddingStart="8dp"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:paddingTop="6dp" android:paddingBottom="6dp">
+                <TextView android:layout_width="50dp" android:layout_height="wrap_content" android:text="146" android:gravity="center"/>
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1.5" android:text="Lập trình trên thiết bị di động nâng cao" android:gravity="center_vertical|start" android:paddingStart="8dp" android:singleLine="false" android:ellipsize="none"/>
+                <TextView android:layout_width="40dp" android:layout_height="wrap_content" android:text="4" android:gravity="center"/>
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1.5" android:text="5.400.000 VND" android:gravity="center" android:paddingStart="8dp"/>
+            </LinearLayout>
+    </LinearLayout>
+        <!-- ===== Học Kỳ hè Năm 3 ===== -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#FFFFFF"
+            android:elevation="4dp"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Học Kỳ 7"
+                android:textColor="#673AB7"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- Header bảng -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#F3E5F5"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp">
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="Mã MH"
+                    android:textStyle="bold"
+                    android:textColor="#6A1B9A"
+                    android:gravity="center"/>
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="Tên môn học"
+                    android:textStyle="bold"
+                    android:textColor="#6A1B9A"
+                    android:textSize="14sp"
+                    android:gravity="center_vertical|start"
+                    android:paddingStart="8dp"
+                    android:singleLine="false"
+                    android:ellipsize="none"/>
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="TC"
+                    android:textColor="#6A1B9A"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="Học phí"
+                    android:textStyle="bold"
+                    android:textColor="#6A1B9A"
+                    android:gravity="center"
+                    android:paddingStart="8dp"/>
+            </LinearLayout>
+            <!-- Môn học HK7 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp">
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="147"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="Thực tập công nghiệp"
+                    android:gravity="center_vertical|start"
+                    android:paddingStart="8dp"
+                    android:singleLine="false"
+                    android:ellipsize="none"/>
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:text="3"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="3.900.000 VND"
+                    android:gravity="center"
+                    android:paddingStart="8dp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

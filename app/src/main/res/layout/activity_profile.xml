@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:id="@+id/hang_dau_header"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center_vertical"
+        android:background="#003366"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="45dp"
+            android:src="@drawable/ic_logo_huflit" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="Trường Đại Học Ngoại Ngữ &amp; Tin Học - HUFLIT"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/hang_dau_header"
+        app:layout_constraintBottom_toTopOf="@id/footer_lien_he">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#004080"
+                android:padding="8dp"
+                android:text="Thông tin sinh viên"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="15dp">
+
+                <ImageView
+                    android:id="@+id/anh_dai_dien"
+                    android:layout_width="120dp"
+                    android:layout_height="150dp"
+                    android:scaleType="centerInside"
+                    android:src="@android:drawable/ic_menu_gallery" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="10dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Thông tin khóa học" android:textColor="#8B0000" android:textStyle="bold" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Khóa học: Đại học chính quy" android:layout_marginTop="5dp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Niên khóa: 2022 - 2026" android:layout_marginTop="5dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:layout_marginTop="10dp">
+
+                <TextView android:text="Mã SV: " android:padding="5dp"/>
+
+                <EditText
+                    android:id="@+id/edit_msv"
+                    android:layout_width="wrap_content"
+                    android:background="@null"
+                    android:hint="Nhập mã số"
+                    android:minWidth="180dp"
+                    android:minHeight="48dp" />
+
+                <TextView android:text="Họ tên: " android:padding="5dp"/>
+
+                <EditText
+                    android:id="@+id/edit_hoten"
+                    android:layout_width="wrap_content"
+                    android:background="@null"
+                    android:hint="Nhập họ tên"
+                    android:minHeight="48dp" />
+
+                <TextView android:text="Ngày sinh: " android:padding="5dp"/>
+
+                <EditText
+                    android:id="@+id/edit_ngaysinh"
+                    android:layout_width="wrap_content"
+                    android:background="@null"
+                    android:clickable="true"
+                    android:focusable="false"
+                    android:hint="Chọn ngày sinh"
+                    android:minHeight="48dp" />
+
+                <TextView android:text="Giới tính: " android:padding="5dp" android:layout_gravity="center_vertical"/>
+                <RadioGroup
+                    android:id="@+id/rg_gioitinh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <RadioButton
+                        android:id="@+id/rb_nam"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nam"
+                        android:checked="true"
+                        android:textSize="14sp"/>
+                    <RadioButton
+                        android:id="@+id/rb_nu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="Nữ"
+                        android:textSize="14sp"/>
+                </RadioGroup>
+                <TextView android:text="Ngành học: " android:padding="5dp"/>
+                <EditText
+                    android:id="@+id/edit_nganhhoc"
+                    android:layout_width="wrap_content"
+                    android:background="@null"
+                    android:hint="Ngành học của bạn"
+                    android:minWidth="180dp"
+                    android:minHeight="48dp"
+                    android:enabled="false" />
+
+                <TextView android:text="CCCD: " android:padding="5dp"/>
+
+                <EditText
+                    android:id="@+id/edit_cccd"
+                    android:layout_width="wrap_content"
+                    android:background="@null"
+                    android:hint="Số CCCD"
+                    android:minHeight="48dp" />
+
+                <TextView android:text="Dân tộc: " android:padding="5dp"/>
+
+                <EditText
+                    android:id="@+id/edit_dantoc"
+                    android:layout_width="wrap_content"
+                    android:background="@null"
+                    android:hint="Kinh..."
+                    android:minHeight="48dp" />
+
+                <TextView android:text="Quốc gia: " android:padding="5dp"/>
+
+                <EditText
+                    android:id="@+id/edit_quocgia"
+                    android:layout_width="wrap_content"
+                    android:background="@null"
+                    android:hint="Việt Nam"
+                    android:minHeight="48dp" />
+
+                <TextView android:text="Di động: " android:padding="5dp"/>
+
+                <EditText
+                    android:id="@+id/edit_didong"
+                    android:layout_width="wrap_content"
+                    android:background="@null"
+                    android:hint="SĐT cá nhân"
+                    android:minHeight="48dp" />
+
+                <TextView android:text="Email cá nhân: " android:padding="5dp"/>
+
+                <EditText
+                    android:id="@+id/edit_email_canhan"
+                    android:layout_width="wrap_content"
+                    android:background="@null"
+                    android:hint="Email của bạn"
+                    android:minHeight="48dp"
+                    android:textSize="12sp" />
+            </GridLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Thông tin người liên hệ"
+                android:textColor="#8B0000"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/edit_ten_nguoi_lh"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:hint="Họ tên người liên hệ"
+                android:minHeight="48dp"
+                android:padding="10dp" />
+
+            <EditText
+                android:id="@+id/edit_sdt_nguoi_lh"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:hint="Số điện thoại người liên hệ"
+                android:minHeight="48dp"
+                android:padding="10dp" />
+            <EditText android:id="@+id/edit_dc_nguoi_lh" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Địa chỉ người liên hệ" android:background="@null" android:padding="10dp"/>
+
+            <Button
+                android:id="@+id/btn_cap_nhat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:backgroundTint="#003366"
+                android:text="Cập nhật thông tin"
+                android:textColor="#FFFFFF" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/footer_lien_he"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#000080"
+        android:orientation="vertical"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+            <ImageView android:layout_width="16dp" android:layout_height="16dp" android:src="@android:drawable/ic_menu_call" app:tint="#FFFFFF" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp" android:text="(+84 28) 3863 2052" android:textColor="#FFFFFF" android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="4dp"
+            android:gravity="center_vertical">
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@android:drawable/ic_dialog_email"
+                app:tint="#FFFFFF" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp" android:text="contact@huflit.edu.vn" android:textColor="#FFFFFF" android:textSize="12sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

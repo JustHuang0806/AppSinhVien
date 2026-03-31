@@ -1,0 +1,39 @@
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+        <TextView
+            android:id="@+id/txtStudentName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tên Sinh Viên"
+            android:textColor="#673AB7"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtStudentEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="email@example.com"
+            android:textColor="#757575" />
+
+        <TextView
+            android:id="@+id/txtStudentSemester"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Học kỳ hạn định: 2"
+            android:textColor="#F44336"
+            android:textStyle="italic" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

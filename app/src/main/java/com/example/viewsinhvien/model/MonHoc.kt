@@ -1,4 +1,10 @@
 package com.example.viewsinhvien.model
 
-class MonHoc {
-}
+data class MonHoc(
+    val maMH: String,
+    val tenMH: String,
+    val phaiDong: Long,
+    val daDong: Long,
+    val ngayDong: String,
+    val tinChi: Int
+)

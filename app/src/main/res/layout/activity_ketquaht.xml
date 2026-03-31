@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F9F9F9">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- HEADER -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/btnBackHomeKQ"
+                android:layout_width="54dp"
+                android:layout_height="wrap_content"
+                android:paddingEnd="10dp"
+                android:text="←"
+                android:textColor="#6A1B9A"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kết quả học tập"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="#6A1B9A"/>
+        </LinearLayout>
+
+        <!-- CARD -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#FFFFFF"
+            android:elevation="4dp"
+            android:padding="16dp">
+
+            <!-- TABLE HEADER -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#F3E5F5"
+                android:padding="6dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Mã MH"
+                    android:textStyle="bold"
+                    android:textColor="#6A1B9A"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2.5"
+                    android:text="Môn học"
+                    android:textStyle="bold"
+                    android:textColor="#6A1B9A"
+                    android:paddingStart="6dp"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="Học Kỳ"
+                    android:textStyle="bold"
+                    android:textColor="#6A1B9A"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Điểm"
+                    android:textStyle="bold"
+                    android:textColor="#6A1B9A"
+                    android:gravity="center"/>
+            </LinearLayout>
+
+            <!-- 🔥 DANH SÁCH ĐỘNG -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvMonHoc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

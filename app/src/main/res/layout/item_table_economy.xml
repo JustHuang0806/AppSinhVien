@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="20dp"
+    android:orientation="vertical"
+    android:background="@drawable/border_table"
+    android:padding="2dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        android:backgroundTint="@color/navy_blue"
+        android:background="#FFFFFF">
+
+        <ImageView
+            android:layout_width="65dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_logo_huflit" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="Trường Đại Học Ngoại Ngữ &amp; Tin Học - HUFLIT"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_tieu_de_bang"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#003366"
+        android:text="@string/hoc_ky_nam_hoc"
+        android:padding="8dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="13sp" />
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableLayout
+            android:id="@+id/table_noi_dung"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#000000"
+            android:padding="0.5dp">
+
+            <TableRow>
+                <TextView android:text="@string/ma_mh" android:background="#FFD700" android:padding="8dp" android:textStyle="bold" android:gravity="center" android:textSize="11sp" android:layout_margin="0.5dp"/>
+                <TextView android:text="@string/ten_mh" android:background="#FFD700" android:padding="8dp" android:textStyle="bold" android:gravity="center" android:textSize="11sp" android:layout_margin="0.5dp"/>
+                <TextView android:text="@string/phai_dong" android:background="#FFD700" android:padding="8dp" android:textStyle="bold" android:gravity="center" android:textSize="11sp" android:layout_margin="0.5dp"/>
+                <TextView android:text="@string/da_dong" android:background="#FFD700" android:padding="8dp" android:textStyle="bold" android:gravity="center" android:textSize="11sp" android:layout_margin="0.5dp"/>
+                <TextView android:text="@string/ngay_dong" android:background="#FFD700" android:padding="8dp" android:textStyle="bold" android:gravity="center" android:textSize="11sp" android:layout_margin="0.5dp"/>
+                <TextView android:text="@string/mien_giam" android:background="#FFD700" android:padding="8dp" android:textStyle="bold" android:gravity="center" android:textSize="11sp" android:layout_margin="0.5dp"/>
+                <TextView android:text="@string/con_no" android:background="#FFD700" android:padding="8dp" android:textStyle="bold" android:gravity="center" android:textSize="11sp" android:layout_margin="0.5dp"/>
+            </TableRow>
+        </TableLayout>
+    </HorizontalScrollView>
+
+    <TextView
+        android:id="@+id/tv_tong_cong"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#003366"
+        android:text="@string/tong_hoc_phi"
+        android:padding="8dp"
+        android:textColor="#FFFFFF"
+        android:gravity="end"
+        android:textStyle="bold"
+        android:textSize="13sp" />
+</LinearLayout>

@@ -60,9 +60,6 @@ class MainMenuActivity : AppCompatActivity() {
         findViewById<MaterialButton>(R.id.btnProfile).setOnClickListener {
             startActivity(Intent(this, ProfileActivity::class.java))
         }
-        findViewById<MaterialButton>(R.id.btnNews).setOnClickListener {
-            startActivity(Intent(this, NewsActivity::class.java))
-        }
         btnLogout.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
 

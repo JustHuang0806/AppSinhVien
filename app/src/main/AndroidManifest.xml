@@ -24,7 +24,6 @@
         <activity android:name="com.example.viewsinhvien.ScheduleActivity" android:exported="false" />
         <activity android:name="com.example.viewsinhvien.ScoreActivity" android:exported="false" />
         <activity android:name="com.example.viewsinhvien.SubjectActivity" android:exported="false" />
-        <activity android:name="com.example.viewsinhvien.NewsActivity" android:exported="false" />
 
         <activity android:name="com.example.viewlogin.ForgotPasswordActivity" android:exported="false" />
         <activity android:name="com.example.viewadmin.AdminActivity" android:exported="false" />
@@ -32,7 +31,5 @@
         <activity android:name="com.example.viewadmin.monhoc"/>
         <activity android:name="com.example.viewadmin.sinhvien"/>
         <activity android:name="com.example.viewadmin.taichinhsv"/>
-        <activity android:name="com.example.viewadmin.tintucsv"/>
-
     </application>
 </manifest>

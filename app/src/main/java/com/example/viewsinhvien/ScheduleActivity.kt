@@ -6,6 +6,8 @@ import android.view.Gravity
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import com.example.viewsinhvien.model.Course
+import com.example.viewsinhvien.model.SharedData
 
 class ScheduleActivity : AppCompatActivity() {
 
@@ -33,20 +35,24 @@ class ScheduleActivity : AppCompatActivity() {
         val dsNamHoc = listOf("2022-2023", "2023-2024", "2024-2025", "2025-2026")
         val adpNam = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, dsNamHoc)
         spnNamHoc.adapter = adpNam
-        spnNamHoc.setSelection(3) // Mặc định 2025-2026
+        spnNamHoc.setSelection(3)
 
         val dsHocKy = listOf("Học kỳ 1", "Học kỳ 2", "Học kỳ 3")
         val adpHocKy = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, dsHocKy)
         spnHocKy.adapter = adpHocKy
 
-        // Nếu chọn học kì 1 sẽ bắt đầu từ tuần 1, hc kì 2 từ tuần 18 và học kì 3 từ tuần 37
-        spnHocKy.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        val commonListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
-                capNhatDanhSachTuan(position + 1)
+                if (p0 == spnHocKy) {
+                    capNhatDanhSachTuan(position + 1)
+                }
                 capNhatBangTheoLoc()
             }
             override fun onNothingSelected(p0: AdapterView<*>?) {}
         }
+
+        spnNamHoc.onItemSelectedListener = commonListener
+        spnHocKy.onItemSelectedListener = commonListener
     }
 
     private fun capNhatDanhSachTuan(hocKy: Int) {
@@ -62,19 +68,27 @@ class ScheduleActivity : AppCompatActivity() {
 
     private fun capNhatBangTheoLoc() {
         val namHoc = spnNamHoc.selectedItem.toString()
+
         val count = bangTKB.childCount
         if (count > 1) {
             bangTKB.removeViews(1, count - 1)
         }
 
-        // NOTE LAI TUNG NAM DE THEM MON O DAY
-        when (namHoc) {
-            "2022-2023" -> {  }
-            "2023-2024" -> {  }
-            "2024-2025" -> {  }
-            "2025-2026" -> {
-                themHangVaoBang("1", "252121015460", "Thuật toán đồ thị", "4", "Hai", "7-9", "PM20", "Nguyễn Thị Phương Trang")
-                themHangVaoBang("2", "252123038402", "Lập trình trên thiết bị di động", "4", "Hai", "10-12", "B46", "Thái Thị Thanh Thảo")
+        if (namHoc == "2025-2026") {
+            SharedData.dsDaDangKy.forEachIndexed { index, pair ->
+                val mon = pair.first
+                val lop = pair.second
+
+                themHangVaoBang(
+                    (index + 1).toString(),
+                    mon.maMon,
+                    mon.tenMon,
+                    mon.tinChi.toString(),
+                    lop.thu,
+                    lop.tiet,
+                    "Phòng B.46",
+                    lop.giangVien
+                )
             }
         }
     }
@@ -87,7 +101,7 @@ class ScheduleActivity : AppCompatActivity() {
         for (text in fields) {
             val tv = TextView(this)
             tv.text = text
-            tv.setPadding(15, 20, 15, 20)
+            tv.setPadding(20, 25, 20, 25)
             tv.gravity = Gravity.CENTER
             tv.setTextColor(Color.BLACK)
             tv.setBackgroundResource(android.R.drawable.divider_horizontal_bright)

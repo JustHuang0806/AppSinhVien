@@ -7,15 +7,18 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.viewsinhvien.R
 
-class StudentAdapter(private var studentList: List<Map<String, Any>>,
-                     private val onItemClick: (Map<String, Any>) -> Unit,
-                     private val onItemLongClick: (Map<String, Any>) -> Unit) :
-    RecyclerView.Adapter<StudentAdapter.StudentViewHolder>() {
+class StudentAdapter(
+    private var studentList: List<Map<String, Any>>,
+    private val onItemClick: (Map<String, Any>) -> Unit,
+    private val onItemLongClick: (Map<String, Any>) -> Unit,
+    private val onScoreClick: (Map<String, Any>) -> Unit
+) : RecyclerView.Adapter<StudentAdapter.StudentViewHolder>() {
 
     class StudentViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val name = view.findViewById<TextView>(R.id.txtStudentName)
         val email = view.findViewById<TextView>(R.id.txtStudentEmail)
         val semester = view.findViewById<TextView>(R.id.txtStudentSemester)
+        val btnGoToScore = view.findViewById<View>(R.id.btnGoToScore)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StudentViewHolder {
@@ -25,10 +28,21 @@ class StudentAdapter(private var studentList: List<Map<String, Any>>,
 
     override fun onBindViewHolder(holder: StudentViewHolder, position: Int) {
         val student = studentList[position]
-        holder.name.text = student["fullName"].toString()
-        holder.email.text = student["email"].toString()
+        holder.name.text = student["fullName"]?.toString() ?: ""
+        holder.email.text = student["email"]?.toString() ?: ""
         holder.semester.text = "Giới hạn học kỳ: ${student["currentSemesterLimit"]}"
-        holder.itemView.setOnClickListener { onItemClick(student) }
+
+        // Bấm vào nút "Điểm"
+        holder.btnGoToScore.setOnClickListener {
+            onScoreClick(student)
+        }
+
+        // Bấm vào Item để Chỉnh sửa
+        holder.itemView.setOnClickListener {
+            onItemClick(student)
+        }
+
+        // Nhấn giữ Item để Xóa
         holder.itemView.setOnLongClickListener {
             onItemLongClick(student)
             true

@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
-import android.widget.LinearLayout // Cần thiết cho showAddStudentDialog
+import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.viewsinhvien.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.android.material.floatingactionbutton.FloatingActionButton // Cần thiết cho btnAdd
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class sinhvien : AppCompatActivity() {
 
@@ -37,10 +37,8 @@ class sinhvien : AppCompatActivity() {
 
         val btnBack = findViewById<View>(R.id.btnBackAdmin)
 
-        // Load dữ liệu lần đầu
         loadData()
 
-        // 1. Logic Thêm Sinh Viên (Mở Dialog)
         val btnAdd = findViewById<FloatingActionButton>(R.id.btnAddStudent)
         btnAdd.setOnClickListener {
             showAddStudentDialog()
@@ -55,7 +53,6 @@ class sinhvien : AppCompatActivity() {
         val builder = android.app.AlertDialog.Builder(this)
         builder.setTitle("Thêm Sinh Viên Mới")
 
-        // Tạo layout nhập liệu bằng code
         val container = LinearLayout(this)
         container.orientation = LinearLayout.VERTICAL
         container.setPadding(60, 20, 60, 0)
@@ -82,7 +79,7 @@ class sinhvien : AppCompatActivity() {
             val major = etMajor.text.toString().trim()
             val limitStr = etLimit.text.toString().trim()
 
-            if (mssv.isNotEmpty() &&email.isNotEmpty() && name.isNotEmpty() && major.isNotEmpty() && limitStr.isNotEmpty()) {
+            if (mssv.isNotEmpty() && email.isNotEmpty() && name.isNotEmpty() && major.isNotEmpty() && limitStr.isNotEmpty()) {
                 TaoSinhVien(email, name, limitStr.toInt(), mssv, major)
             } else {
                 Toast.makeText(this, "Vui lòng nhập đủ thông tin!", Toast.LENGTH_SHORT).show()
@@ -91,10 +88,10 @@ class sinhvien : AppCompatActivity() {
         builder.setNegativeButton("Hủy", null)
         builder.show()
     }
+
     private fun showEditDialog(student: Map<String, Any>) {
         val uid = student["uid"].toString()
 
-        // Lấy dữ liệu hiện tại từ Map để hiển thị lên các ô nhập
         val currentMSSV = student["studentCode"]?.toString() ?: ""
         val currentName = student["fullName"]?.toString() ?: ""
         val currentMajor = student["major"]?.toString() ?: ""
@@ -103,13 +100,11 @@ class sinhvien : AppCompatActivity() {
         val builder = android.app.AlertDialog.Builder(this)
         builder.setTitle("Chỉnh sửa thông tin sinh viên")
 
-        // Tạo Layout chứa các ô nhập
         val container = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
             setPadding(60, 20, 60, 0)
         }
 
-        // Khởi tạo các ô nhập liệu và đổ dữ liệu cũ vào
         val etMaSV = EditText(this).apply {
             hint = "Mã số sinh viên"
             setText(currentMSSV)
@@ -129,7 +124,6 @@ class sinhvien : AppCompatActivity() {
             inputType = android.text.InputType.TYPE_CLASS_NUMBER
         }
 
-        // Thêm các ô nhập vào Layout
         container.addView(etMaSV)
         container.addView(etName)
         container.addView(etMajor)
@@ -143,7 +137,6 @@ class sinhvien : AppCompatActivity() {
             val newLimit = etLimit.text.toString().toIntOrNull() ?: 1
 
             if (newMSSV.isNotEmpty() && newName.isNotEmpty() && newMajor.isNotEmpty()) {
-                // Tạo Map chứa các thông tin cần cập nhật
                 val updateData = hashMapOf(
                     "studentCode" to newMSSV,
                     "fullName" to newName,
@@ -151,11 +144,10 @@ class sinhvien : AppCompatActivity() {
                     "currentSemesterLimit" to newLimit
                 )
 
-                // Cập nhật lên Firestore dùng .update() để giữ lại các trường khác (như email, role)
                 db.collection("Users").document(uid)
                     .update(updateData as Map<String, Any>)
                     .addOnSuccessListener {
-                        loadData() // Tải lại danh sách sau khi sửa thành công
+                        loadData()
                         Toast.makeText(this, "Đã cập nhật thông tin cho $newName", Toast.LENGTH_SHORT).show()
                     }
                     .addOnFailureListener { e ->
@@ -167,12 +159,11 @@ class sinhvien : AppCompatActivity() {
         }
 
         builder.setNegativeButton("Hủy", null)
-
         val dialog = builder.create()
         dialog.show()
-        // Fix lỗi gõ dấu tiếng Việt cho Dialog
         dialog.window?.clearFlags(android.view.WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE)
     }
+
     private fun showDeleteConfirm(student: Map<String, Any>) {
         val uid = student["uid"].toString()
         val name = student["fullName"].toString()
@@ -198,12 +189,21 @@ class sinhvien : AppCompatActivity() {
             .addOnSuccessListener { documents ->
                 listData.clear()
                 for (doc in documents) {
-                    listData.add(doc.data)
+                    val data = doc.data.toMutableMap()
+                    data["uid"] = doc.id
+                    listData.add(data)
                 }
-                // Khởi tạo Adapter với listData
-                studentAdapter = StudentAdapter(listData,
+
+                studentAdapter = StudentAdapter(
+                    studentList = listData,
                     onItemClick = { student -> showEditDialog(student) },
-                    onItemLongClick = { student -> showDeleteConfirm(student) }
+                    onItemLongClick = { student -> showDeleteConfirm(student) },
+                    onScoreClick = { student ->
+                        val intent = Intent(this, ketquaht::class.java)
+                        intent.putExtra("STUDENT_UID", student["uid"].toString())
+                        intent.putExtra("STUDENT_NAME", student["fullName"].toString())
+                        startActivity(intent)
+                    }
                 )
                 recyclerView.adapter = studentAdapter
             }

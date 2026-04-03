@@ -110,12 +110,12 @@
             app:strokeWidth="1.5dp" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnNews"
+            android:id="@+id/btnRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="Tin tức và quy tắc sinh viên"
-            android:textColor="@color/white_100"
+            android:text="Đăng ký môn học"
+            android:textColor="@color/white"
             app:backgroundTint="@color/background_cyan"
             app:strokeColor="@color/colorPrimaryDark"
             app:strokeWidth="1.5dp" />

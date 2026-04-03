@@ -8,6 +8,38 @@ import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
+// Data models
+data class Subject(
+    val MaSinhVien: Int,
+    val TenSinhVien: String,
+    val TinChi: Int,
+    val Diemhe10: Double,
+    val DiemGiuaKy: Double,
+    val DiemCuoiKy: Double
+) {
+    val Diemhe4: Double get() = when {
+        Diemhe10 >= 8.5 -> 4.0
+        Diemhe10 >= 7.0 -> 3.0
+        Diemhe10 >= 5.5 -> 2.0
+        Diemhe10 >= 4.0 -> 1.0
+        else -> 0.0
+    }
+    val DiemChu: String get() = when {
+        Diemhe10 >= 8.5 -> "A"
+        Diemhe10 >= 7.0 -> "B"
+        Diemhe10 >= 5.5 -> "C"
+        Diemhe10 >= 4.0 -> "D"
+        else -> "F"
+    }
+    val isPassed: Boolean get() = Diemhe10 >= 4.0
+}
+
+data class Semester(
+    val title: String,
+    val subjects: List<Subject>,
+    val trainingPoint: Double
+)
+
 // Adapter từng Học kỳ
 class HocKyAdapter(
     private val danhSachHocKy: List<Semester>,

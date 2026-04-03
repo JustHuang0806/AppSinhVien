@@ -18,7 +18,6 @@ class AdminActivity : AppCompatActivity() {
 
         val btnThongTin = findViewById<View>(R.id.btn_thongtin_sv)
         val btnMonHoc = findViewById<View>(R.id.btn_monhoc_sv)
-        val btnKetQua = findViewById<View>(R.id.btn_ketqua_ht)
         val btnTaiChinh = findViewById<View>(R.id.btn_taichinh_sv)
         val btnLogout = findViewById<LinearLayout>(R.id.btn_logout)
 
@@ -30,13 +29,10 @@ class AdminActivity : AppCompatActivity() {
             startActivity(Intent(this, monhoc::class.java))
         }
 
-        btnKetQua.setOnClickListener {
-            startActivity(Intent(this, ketquaht::class.java))
-        }
-
         btnTaiChinh.setOnClickListener {
             startActivity(Intent(this, taichinhsv::class.java))
         }
+        
         btnLogout.setOnClickListener {
             val sharedPref = getSharedPreferences("UserPrefs", Context.MODE_PRIVATE)
             sharedPref.edit().clear().apply()

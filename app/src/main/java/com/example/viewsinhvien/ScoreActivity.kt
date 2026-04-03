@@ -8,13 +8,18 @@ import android.view.Gravity
 import android.view.ViewGroup
 import android.view.Window
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class ScoreActivity : AppCompatActivity() {
 
     private lateinit var rvSemesters: RecyclerView
+    private val db = FirebaseFirestore.getInstance()
+    private val auth = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,33 +32,77 @@ class ScoreActivity : AppCompatActivity() {
     }
 
     private fun loadDataFromFirebase() {
-        val mockData = listOf(
-            Semester(
-                "Năm học: 2022-2023 - Học kỳ: HK01", listOf(
-                    Subject(1010443, "Triết học Mác - Lênin", 3, 6.1, 5.5, 6.5),
-                    Subject(1221163, "Toán rời rạc", 3, 3.2, 2.0, 4.0)
-                ), 82.0
-            )
-        )
-        rvSemesters.adapter = HocKyAdapter(mockData) { monHocDuocChon ->
-            showScoreDetailPopup(monHocDuocChon)
-        }
+        val currentUserId = auth.currentUser?.uid ?: return
+
+        db.collection("Users").document(currentUserId)
+            .collection("Scores")
+            .get()
+            .addOnSuccessListener { documents ->
+                val semesterMap = mutableMapOf<String, MutableList<Subject>>()
+
+                for (doc in documents) {
+                    val subjectName = doc.getString("subjectName") ?: "Không tên"
+                    
+                    // Ưu tiên lấy trường 'semester', nếu null thì lấy 'currentSemesterLimit'
+                    val semesterValue = doc.get("semester") ?: doc.get("currentSemesterLimit")
+                    val semesterTitle = semesterValue?.toString() ?: "Học kỳ khác"
+                    
+                    val grade = when (val g = doc.get("grade")) {
+                        is Double -> g
+                        is Long -> g.toDouble()
+                        is Number -> g.toDouble()
+                        else -> 0.0
+                    }
+                    
+                    val tinChi = doc.getLong("tinChi")?.toInt() ?: 3
+
+                    val subject = Subject(
+                        MaSinhVien = 0,
+                        TenSinhVien = subjectName,
+                        TinChi = tinChi,
+                        Diemhe10 = grade,
+                        DiemGiuaKy = 0.0,
+                        DiemCuoiKy = grade
+                    )
+
+                    if (!semesterMap.containsKey(semesterTitle)) {
+                        semesterMap[semesterTitle] = mutableListOf()
+                    }
+                    semesterMap[semesterTitle]?.add(subject)
+                }
+
+                // Sắp xếp theo tên học kỳ để hiển thị thứ tự 1, 2, 3...
+                val semesterList = semesterMap.map { (title, subjects) ->
+                    Semester(title, subjects, 80.0)
+                }.sortedBy { it.title }
+
+                if (semesterList.isEmpty()) {
+                    Toast.makeText(this, "Bạn chưa có điểm số nào.", Toast.LENGTH_SHORT).show()
+                } else {
+                    rvSemesters.adapter = HocKyAdapter(semesterList) { monHocDuocChon ->
+                        showScoreDetailPopup(monHocDuocChon)
+                    }
+                }
+            }
+            .addOnFailureListener { e ->
+                Toast.makeText(this, "Lỗi tải điểm: ${e.message}", Toast.LENGTH_SHORT).show()
+            }
     }
 
     private fun showScoreDetailPopup(subject: Subject) {
         val dialog = Dialog(this)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-
-
         dialog.setContentView(R.layout.popup_bang_diem)
 
         val tvName = dialog.findViewById<TextView>(R.id.tv_detail_subject_name)
         val tvFinal = dialog.findViewById<TextView>(R.id.tv_final_score)
         val tvMid = dialog.findViewById<TextView>(R.id.tv_midterm_score)
+        val tvDiemHe4 = dialog.findViewById<TextView>(R.id.tv_detail_grade_4)
 
         tvName.text = subject.TenSinhVien
         tvFinal.text = subject.DiemCuoiKy.toString()
         tvMid.text = subject.DiemGiuaKy.toString()
+        tvDiemHe4?.text = "Điểm hệ 4: ${subject.Diemhe4}"
 
         dialog.show()
         dialog.window?.apply {
@@ -63,23 +112,3 @@ class ScoreActivity : AppCompatActivity() {
         }
     }
 }
-
-// CHUYỂN 2 CLASS NÀY RA NGOÀI CLASS SCOREACTIVITY ĐỂ HẾT LỖI UNRESOLVED REFERENCE
-data class Subject(
-    var MaSinhVien: Int = 0,
-    val TenSinhVien: String,
-    val TinChi: Int,
-    val Diemhe10: Double,
-    val DiemGiuaKy: Double,
-    val DiemCuoiKy: Double
-) {
-    val Diemhe4: Double get() = if (Diemhe10 >= 8.5) 4.0 else if (Diemhe10 >= 7.0) 3.0 else if (Diemhe10 >= 5.5) 2.5 else if (Diemhe10 >= 5.0) 2.0 else if (Diemhe10 >= 4.0) 1.0 else 0.0
-    val DiemChu: String get() = if (Diemhe10 >= 8.5) "A" else if (Diemhe10 >= 7.0) "B" else if (Diemhe10 >= 5.5) "C+" else if (Diemhe10 >= 5.0) "C" else if (Diemhe10 >= 4.0) "D" else "F"
-    val isPassed: Boolean get() = Diemhe10 >= 4.0
-}
-
-data class Semester(
-    val title: String,
-    val subjects: List<Subject>,
-    val trainingScore: Double
-)

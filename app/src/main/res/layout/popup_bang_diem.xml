@@ -40,4 +40,12 @@
         <TextView android:layout_width="0dp" android:layout_weight="2" android:layout_height="wrap_content" android:text="Điểm thi kết thúc học phần"/>
         <TextView android:id="@+id/tv_final_score" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:gravity="center" android:text="0.0"/>
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+        <TextView android:layout_width="0dp" android:layout_weight="2" android:layout_height="wrap_content" android:text="Điểm hệ 4"/>
+        <TextView android:id="@+id/tv_detail_grade_4" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:gravity="center" android:text="0.0" android:textStyle="bold" android:textColor="#003366"/>
+    </LinearLayout>
 </LinearLayout>

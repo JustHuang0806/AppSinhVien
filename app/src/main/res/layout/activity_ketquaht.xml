@@ -1,105 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F9F9F9">
+    android:background="#F5F5F5">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="20dp">
 
-        <!-- HEADER -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:gravity="center_vertical"
-            android:layout_marginBottom="16dp">
+            android:layout_marginBottom="24dp"
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/btnBackHomeKQ"
-                android:layout_width="54dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingEnd="10dp"
                 android:text="←"
-                android:textColor="#6A1B9A"
+                android:textColor="#1A237E"
                 android:textSize="30sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:paddingEnd="16dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Kết quả học tập"
+                android:text="Quản lý điểm số"
+                android:textColor="#1A237E"
                 android:textSize="22sp"
-                android:textStyle="bold"
-                android:textColor="#6A1B9A"/>
+                android:textStyle="bold" />
         </LinearLayout>
 
-        <!-- CARD -->
-        <LinearLayout
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="#FFFFFF"
-            android:elevation="4dp"
-            android:padding="16dp">
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp"
+            android:layout_marginBottom="20dp">
 
-            <!-- TABLE HEADER -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:background="#F3E5F5"
-                android:padding="6dp">
+                android:orientation="vertical"
+                android:padding="20dp">
 
                 <TextView
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Mã MH"
-                    android:textStyle="bold"
+                    android:text="Nhập thông tin điểm mới"
                     android:textColor="#6A1B9A"
-                    android:gravity="center"/>
+                    android:textStyle="bold"
+                    android:layout_marginBottom="16dp"/>
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2.5"
-                    android:text="Môn học"
-                    android:textStyle="bold"
-                    android:textColor="#6A1B9A"
-                    android:paddingStart="6dp"/>
+                <EditText
+                    android:id="@+id/etStudentUid"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@android:drawable/editbox_background"
+                    android:hint="Nhập UID Sinh viên"
+                    android:paddingHorizontal="12dp"
+                    android:layout_marginBottom="12dp"/>
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1.5"
-                    android:text="Học Kỳ"
-                    android:textStyle="bold"
-                    android:textColor="#6A1B9A"
-                    android:gravity="center"/>
+                <EditText
+                    android:id="@+id/etSubjectName"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@android:drawable/editbox_background"
+                    android:hint="Tên môn học (VD: Lập trình Android)"
+                    android:paddingHorizontal="12dp"
+                    android:layout_marginBottom="12dp"/>
 
-                <TextView
-                    android:layout_width="0dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Điểm"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <EditText
+                        android:id="@+id/etSemester"
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="6dp"
+                        android:background="@android:drawable/editbox_background"
+                        android:hint="Học kỳ (VD: HK1)"
+                        android:paddingHorizontal="12dp"/>
+
+                    <EditText
+                        android:id="@+id/etGrade"
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:layout_marginStart="6dp"
+                        android:background="@android:drawable/editbox_background"
+                        android:hint="Điểm số"
+                        android:inputType="numberDecimal"
+                        android:paddingHorizontal="12dp"/>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnSaveScore"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginTop="20dp"
+                    android:text="LƯU ĐIỂM SỐ"
                     android:textStyle="bold"
-                    android:textColor="#6A1B9A"
-                    android:gravity="center"/>
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="#6A1B9A"
+                    app:cornerRadius="8dp"/>
+
             </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
-            <!-- 🔥 DANH SÁCH ĐỘNG -->
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvMonHoc"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:nestedScrollingEnabled="false"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Danh sách điểm vừa nhập"
+            android:textColor="#1A237E"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
 
-        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvMonHoc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:nestedScrollingEnabled="false" />
 
     </LinearLayout>
-
 </ScrollView>

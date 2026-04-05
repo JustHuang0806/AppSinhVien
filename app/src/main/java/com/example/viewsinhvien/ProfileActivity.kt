@@ -2,14 +2,14 @@ package com.example.viewsinhvien
 
 import android.app.DatePickerDialog
 import android.os.Bundle
-import android.widget.* // Thêm RadioButton và RadioGroup
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import java.util.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
-import android.content.Context
-import android.view.WindowManager
+import android.view.LayoutInflater
+import com.google.firebase.auth.EmailAuthProvider
 
 class ProfileActivity : AppCompatActivity() {
 
@@ -30,19 +30,20 @@ class ProfileActivity : AppCompatActivity() {
     private lateinit var editSdtLH: EditText
     private lateinit var editDcLH: EditText
     private lateinit var btnCapNhat: Button
+    private lateinit var btnDoiMatKhau: Button
+    
     private lateinit var auth: FirebaseAuth
     private lateinit var db: FirebaseFirestore
-    private var currentStudentEmail: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
+        
         auth = FirebaseAuth.getInstance()
         db = FirebaseFirestore.getInstance()
-        val sharedPref = getSharedPreferences("UserPrefs", MODE_PRIVATE)
-        currentStudentEmail = sharedPref.getString("USER_EMAIL", "") ?: ""
 
         khoiTaoThanhPhan()
+        
         val currentUID = auth.currentUser?.uid
         if (currentUID != null) {
             taiDuLieuProfile(currentUID)
@@ -74,33 +75,70 @@ class ProfileActivity : AppCompatActivity() {
         editSdtLH = findViewById(R.id.edit_sdt_nguoi_lh)
         editDcLH = findViewById(R.id.edit_dc_nguoi_lh)
         btnCapNhat = findViewById(R.id.btn_cap_nhat)
-
-        lamTrongThongTin()
-    }
-
-    private fun lamTrongThongTin() {
-        editMaSV.setText("")
-        editHoTen.setText("")
-        editNgaySinh.setText("")
-        rbNam.isChecked = true
-
-        editCCCD.setText("")
-        editDanToc.setText("")
-        editQuocGia.setText("")
-        editDiDong.setText("")
-        editEmailCaNhan.setText("")
-        editTenLH.setText("")
-        editSdtLH.setText("")
-        editDcLH.setText("")
+        btnDoiMatKhau = findViewById(R.id.btn_doi_mat_khau)
     }
 
     private fun thietLapSuKien() {
-        editNgaySinh.setOnClickListener {
-            hienThiDatePicker()
+        editNgaySinh.setOnClickListener { hienThiDatePicker() }
+        btnCapNhat.setOnClickListener { xuLyCapNhatDuLieu() }
+        btnDoiMatKhau.setOnClickListener { hienThiDialogDoiMatKhau() }
+    }
+
+    private fun hienThiDialogDoiMatKhau() {
+        val builder = android.app.AlertDialog.Builder(this)
+        builder.setTitle("Đổi mật khẩu")
+
+        val layout = LinearLayout(this).apply {
+            orientation = LinearLayout.VERTICAL
+            setPadding(60, 20, 60, 0)
         }
 
-        btnCapNhat.setOnClickListener {
-            xuLyCapNhatDuLieu()
+        val etOldPass = EditText(this).apply { hint = "Mật khẩu cũ"; inputType = android.text.InputType.TYPE_CLASS_TEXT or android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD }
+        val etNewPass = EditText(this).apply { hint = "Mật khẩu mới"; inputType = android.text.InputType.TYPE_CLASS_TEXT or android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD }
+        val etConfirmPass = EditText(this).apply { hint = "Xác nhận mật khẩu mới"; inputType = android.text.InputType.TYPE_CLASS_TEXT or android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD }
+
+        layout.addView(etOldPass); layout.addView(etNewPass); layout.addView(etConfirmPass)
+        builder.setView(layout)
+
+        builder.setPositiveButton("Đổi mật khẩu") { _, _ ->
+            val oldPass = etOldPass.text.toString()
+            val newPass = etNewPass.text.toString()
+            val confirmPass = etConfirmPass.text.toString()
+
+            if (newPass != confirmPass) {
+                Toast.makeText(this, "Mật khẩu mới không khớp!", Toast.LENGTH_SHORT).show()
+                return@setPositiveButton
+            }
+            if (newPass.length < 6) {
+                Toast.makeText(this, "Mật khẩu phải từ 6 ký tự!", Toast.LENGTH_SHORT).show()
+                return@setPositiveButton
+            }
+
+            xuLyDoiMatKhauFirebase(oldPass, newPass)
+        }
+        builder.setNegativeButton("Hủy", null)
+        builder.show()
+    }
+
+    private fun xuLyDoiMatKhauFirebase(oldPass: String, newPass: String) {
+        val user = auth.currentUser
+        val email = user?.email ?: return
+
+        // Bước 1: Xác thực lại người dùng bằng mật khẩu cũ
+        val credential = EmailAuthProvider.getCredential(email, oldPass)
+        user.reauthenticate(credential).addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                // Bước 2: Đổi mật khẩu mới
+                user.updatePassword(newPass).addOnCompleteListener { updateTask ->
+                    if (updateTask.isSuccessful) {
+                        Toast.makeText(this, "Đổi mật khẩu thành công!", Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(this, "Lỗi: ${updateTask.exception?.message}", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            } else {
+                Toast.makeText(this, "Mật khẩu cũ không chính xác!", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
@@ -110,28 +148,17 @@ class ProfileActivity : AppCompatActivity() {
         val month = calendar.get(Calendar.MONTH)
         val day = calendar.get(Calendar.DAY_OF_MONTH)
 
-        val datePickerDialog = DatePickerDialog(this, { _, selectedYear, selectedMonth, selectedDay ->
-            val dateString = "$selectedDay/${selectedMonth + 1}/$selectedYear"
-            editNgaySinh.setText(dateString)
-        }, year, month, day)
-
-        datePickerDialog.show()
+        DatePickerDialog(this, { _, y, m, d ->
+            editNgaySinh.setText("$d/${m + 1}/$y")
+        }, year, month, day).show()
     }
 
     private fun xuLyCapNhatDuLieu() {
         val uid = auth.currentUser?.uid ?: return
-
-        val hoTen = editHoTen.text.toString().trim()
-        if (hoTen.isEmpty()) {
-            editHoTen.error = "Không được để trống họ tên"
-            return
-        }
-
         val userMap = hashMapOf(
             "fullName" to editHoTen.text.toString().trim(),
             "birthday" to editNgaySinh.text.toString(),
             "gender" to if (rbNam.isChecked) "Nam" else "Nữ",
-            "major" to editNganhHoc.text.toString(),
             "cccd" to editCCCD.text.toString().trim(),
             "ethnicity" to editDanToc.text.toString().trim(),
             "country" to editQuocGia.text.toString().trim(),
@@ -142,43 +169,28 @@ class ProfileActivity : AppCompatActivity() {
             "contactAddress" to editDcLH.text.toString().trim()
         )
 
-        // Cập nhật Firestore bằng SetOptions.merge() để không mất dữ liệu Admin cấp
-        db.collection("Users").document(uid)
-            .set(userMap, SetOptions.merge())
-            .addOnSuccessListener {
-                Toast.makeText(this, "Cập nhật thành công!", Toast.LENGTH_SHORT).show()
-            }
-            .addOnFailureListener { e ->
-                Toast.makeText(this, "Lỗi cập nhật: ${e.message}", Toast.LENGTH_SHORT).show()
-            }
+        db.collection("Users").document(uid).set(userMap, SetOptions.merge())
+            .addOnSuccessListener { Toast.makeText(this, "Cập nhật thành công!", Toast.LENGTH_SHORT).show() }
+            .addOnFailureListener { e -> Toast.makeText(this, "Lỗi: ${e.message}", Toast.LENGTH_SHORT).show() }
     }
+
     private fun taiDuLieuProfile(uid: String) {
-        db.collection("Users").document(uid)
-            .get()
-            .addOnSuccessListener { doc ->
-                if (doc != null && doc.exists()) {
-                    // Đổ dữ liệu từ Firestore vào EditText
-                    editMaSV.setText(doc.getString("studentCode"))
-                    editHoTen.setText(doc.getString("fullName"))
-                    editNgaySinh.setText(doc.getString("birthday"))
-
-                    val gioiTinh = doc.getString("gender")
-                    if (gioiTinh == "Nữ") rbNu.isChecked = true else rbNam.isChecked = true
-                    editNganhHoc.setText(doc.getString("major"))
-
-                    editCCCD.setText(doc.getString("cccd"))
-                    editDanToc.setText(doc.getString("ethnicity"))
-                    editQuocGia.setText(doc.getString("country"))
-                    editDiDong.setText(doc.getString("phone"))
-                    editEmailCaNhan.setText(doc.getString("personalEmail"))
-
-                    editTenLH.setText(doc.getString("contactName"))
-                    editSdtLH.setText(doc.getString("contactPhone"))
-                    editDcLH.setText(doc.getString("contactAddress"))
-                }
+        db.collection("Users").document(uid).get().addOnSuccessListener { doc ->
+            if (doc != null && doc.exists()) {
+                editMaSV.setText(doc.getString("studentCode"))
+                editHoTen.setText(doc.getString("fullName"))
+                editNgaySinh.setText(doc.getString("birthday"))
+                if (doc.getString("gender") == "Nữ") rbNu.isChecked = true else rbNam.isChecked = true
+                editNganhHoc.setText(doc.getString("major"))
+                editCCCD.setText(doc.getString("cccd"))
+                editDanToc.setText(doc.getString("ethnicity"))
+                editQuocGia.setText(doc.getString("country"))
+                editDiDong.setText(doc.getString("phone"))
+                editEmailCaNhan.setText(doc.getString("personalEmail"))
+                editTenLH.setText(doc.getString("contactName"))
+                editSdtLH.setText(doc.getString("contactPhone"))
+                editDcLH.setText(doc.getString("contactAddress"))
             }
-            .addOnFailureListener { e ->
-                Toast.makeText(this, "Lỗi tải dữ liệu: ${e.message}", Toast.LENGTH_SHORT).show()
-            }
+        }
     }
 }

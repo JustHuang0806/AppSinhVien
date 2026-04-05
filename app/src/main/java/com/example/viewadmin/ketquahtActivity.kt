@@ -43,41 +43,58 @@ class ketquaht : AppCompatActivity() {
         etStudentUid.setText(studentUid)
         etStudentUid.isEnabled = false // Không cho sửa UID
 
-        //val tvTitle = findViewById<TextView>(R.id.tvTitleAdminKQ) // Nếu bạn có TextView tiêu đề
-        // tvTitle.text = "Điểm của $studentName"
-
         // 3. Load danh sách điểm hiện tại
         loadExistingScores()
 
         // 4. Lưu điểm
         btnSaveScore.setOnClickListener {
             val subject = etSubject.text.toString().trim()
-            val semester = etSemester.text.toString().trim()
+            val semesterInputStr = etSemester.text.toString().trim()
             val gradeStr = etGrade.text.toString().trim()
 
-            if (subject.isEmpty() || gradeStr.isEmpty() || semester.isEmpty()) {
+            if (subject.isEmpty() || gradeStr.isEmpty() || semesterInputStr.isEmpty()) {
                 Toast.makeText(this, "Vui lòng nhập đủ thông tin", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            val scoreData = hashMapOf(
-                "subjectName" to subject,
-                "semester" to semester,
-                "grade" to gradeStr.toDouble(),
-                "timestamp" to Timestamp.now()
-            )
+            // Tách lấy số từ chuỗi học kỳ (Ví dụ: "HK4" -> 4)
+            val semesterNum = semesterInputStr.filter { it.isDigit() }.toIntOrNull() ?: 0
 
-            // Lưu vào: Users -> {uid} -> Scores -> {subject}
-            db.collection("Users").document(studentUid)
-                .collection("Scores").document(subject).set(scoreData)
-                .addOnSuccessListener {
-                    Toast.makeText(this, "Đã lưu điểm môn $subject", Toast.LENGTH_SHORT).show()
-                    etSubject.text.clear()
-                    etGrade.text.clear()
-                    loadExistingScores() // Tải lại danh sách sau khi lưu
+            // Kiểm tra hạn định học kỳ của sinh viên trước khi lưu
+            db.collection("Users").document(studentUid).get()
+                .addOnSuccessListener { document ->
+                    if (document.exists()) {
+                        val currentLimit = document.getLong("currentSemesterLimit")?.toInt() ?: 1
+                        
+                        if (semesterNum > currentLimit) {
+                            Toast.makeText(this, "Lỗi: Sinh viên này chỉ được phép nhập điểm của các môn học kỳ $currentLimit", Toast.LENGTH_LONG).show()
+                        } else {
+                            // Thực hiện lưu nếu hợp lệ
+                            val scoreData = hashMapOf(
+                                "subjectName" to subject,
+                                "semester" to semesterInputStr,
+                                "grade" to (gradeStr.toDoubleOrNull() ?: 0.0),
+                                "timestamp" to Timestamp.now()
+                            )
+
+                            db.collection("Users").document(studentUid)
+                                .collection("Scores").document(subject).set(scoreData)
+                                .addOnSuccessListener {
+                                    Toast.makeText(this, "Đã lưu điểm môn $subject", Toast.LENGTH_SHORT).show()
+                                    etSubject.text.clear()
+                                    etGrade.text.clear()
+                                    loadExistingScores() // Tải lại danh sách sau khi lưu
+                                }
+                                .addOnFailureListener { e ->
+                                    Toast.makeText(this, "Lỗi: ${e.message}", Toast.LENGTH_SHORT).show()
+                                }
+                        }
+                    } else {
+                        Toast.makeText(this, "Không tìm thấy thông tin sinh viên!", Toast.LENGTH_SHORT).show()
+                    }
                 }
                 .addOnFailureListener { e ->
-                    Toast.makeText(this, "Lỗi: ${e.message}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Lỗi kiểm tra giới hạn: ${e.message}", Toast.LENGTH_SHORT).show()
                 }
         }
 

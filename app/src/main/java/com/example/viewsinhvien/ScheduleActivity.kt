@@ -6,8 +6,8 @@ import android.view.Gravity
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import com.example.viewsinhvien.model.Course
-import com.example.viewsinhvien.model.SharedData
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class ScheduleActivity : AppCompatActivity() {
 
@@ -15,6 +15,9 @@ class ScheduleActivity : AppCompatActivity() {
     private lateinit var spnHocKy: Spinner
     private lateinit var spnTuan: Spinner
     private lateinit var bangTKB: TableLayout
+    
+    private val db = FirebaseFirestore.getInstance()
+    private val auth = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,6 +25,7 @@ class ScheduleActivity : AppCompatActivity() {
 
         anhXaThanhPhan()
         thietLapDuLieuLoc()
+
     }
 
     private fun anhXaThanhPhan() {
@@ -35,7 +39,7 @@ class ScheduleActivity : AppCompatActivity() {
         val dsNamHoc = listOf("2022-2023", "2023-2024", "2024-2025", "2025-2026")
         val adpNam = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, dsNamHoc)
         spnNamHoc.adapter = adpNam
-        spnNamHoc.setSelection(3)
+        spnNamHoc.setSelection(3) 
 
         val dsHocKy = listOf("Học kỳ 1", "Học kỳ 2", "Học kỳ 3")
         val adpHocKy = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, dsHocKy)
@@ -67,30 +71,36 @@ class ScheduleActivity : AppCompatActivity() {
     }
 
     private fun capNhatBangTheoLoc() {
-        val namHoc = spnNamHoc.selectedItem.toString()
+        val uid = auth.currentUser?.uid ?: return
+        
+        // Truy vấn dữ liệu thực tế từ Firestore túi Schedules
+        db.collection("Users").document(uid).collection("Schedules")
+            .get()
+            .addOnSuccessListener { documents ->
+                // QUAN TRỌNG: Xóa các hàng cũ ngay tại đây, trước khi thêm hàng mới
+                val count = bangTKB.childCount
+                if (count > 1) {
+                    bangTKB.removeViews(1, count - 1)
+                }
 
-        val count = bangTKB.childCount
-        if (count > 1) {
-            bangTKB.removeViews(1, count - 1)
-        }
-
-        if (namHoc == "2025-2026") {
-            SharedData.dsDaDangKy.forEachIndexed { index, pair ->
-                val mon = pair.first
-                val lop = pair.second
-
-                themHangVaoBang(
-                    (index + 1).toString(),
-                    mon.maMon,
-                    mon.tenMon,
-                    mon.tinChi.toString(),
-                    lop.thu,
-                    lop.tiet,
-                    "Phòng B.46",
-                    lop.giangVien
-                )
+                var stt = 1
+                for (doc in documents) {
+                    themHangVaoBang(
+                        stt.toString(),
+                        doc.getString("subjectCode") ?: "",
+                        doc.getString("subjectName") ?: "",
+                        doc.get("credits")?.toString() ?: "",
+                        doc.getString("dayOfWeek") ?: "",
+                        doc.getString("lessonTime") ?: "",
+                        doc.getString("room") ?: "B.46",
+                        doc.getString("teacher") ?: ""
+                    )
+                    stt++
+                }
             }
-        }
+            .addOnFailureListener {
+                Toast.makeText(this, "Lỗi nạp lịch học", Toast.LENGTH_SHORT).show()
+            }
     }
 
     private fun themHangVaoBang(stt: String, maLop: String, tenHP: String, stc: String, thu: String, tiet: String, phong: String, giaoVien: String) {

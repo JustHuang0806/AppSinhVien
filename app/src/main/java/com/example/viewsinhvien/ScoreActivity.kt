@@ -45,7 +45,12 @@ class ScoreActivity : AppCompatActivity() {
                     
                     // Ưu tiên lấy trường 'semester', nếu null thì lấy 'currentSemesterLimit'
                     val semesterValue = doc.get("semester") ?: doc.get("currentSemesterLimit")
-                    val semesterTitle = semesterValue?.toString() ?: "Học kỳ khác"
+                    val rawValue = semesterValue?.toString() ?: ""
+                    val semesterTitle = when {
+                        rawValue.isEmpty() -> "Học kỳ khác"
+                        rawValue.contains("Học kỳ", ignoreCase = true) -> rawValue // Nếu đã có chữ "Học kỳ" thì giữ nguyên
+                        else -> "Học kỳ $rawValue"
+                    }
                     
                     val grade = when (val g = doc.get("grade")) {
                         is Double -> g

@@ -11,7 +11,9 @@ class StudentAdapter(
     private var studentList: List<Map<String, Any>>,
     private val onItemClick: (Map<String, Any>) -> Unit,
     private val onItemLongClick: (Map<String, Any>) -> Unit,
-    private val onScoreClick: (Map<String, Any>) -> Unit
+    private val onScoreClick: (Map<String, Any>) -> Unit,
+    private val onFinanceClick: (Map<String, Any>) -> Unit = {}, // Thêm click tài chính
+    private val showFinanceOnly: Boolean = false // Flag để ẩn/hiện nút
 ) : RecyclerView.Adapter<StudentAdapter.StudentViewHolder>() {
 
     class StudentViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -19,6 +21,7 @@ class StudentAdapter(
         val email = view.findViewById<TextView>(R.id.txtStudentEmail)
         val semester = view.findViewById<TextView>(R.id.txtStudentSemester)
         val btnGoToScore = view.findViewById<View>(R.id.btnGoToScore)
+        val btnGoToFinance = view.findViewById<View>(R.id.btnGoToFinance)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StudentViewHolder {
@@ -32,17 +35,19 @@ class StudentAdapter(
         holder.email.text = student["email"]?.toString() ?: ""
         holder.semester.text = "Giới hạn học kỳ: ${student["currentSemesterLimit"]}"
 
-        // Bấm vào nút "Điểm"
-        holder.btnGoToScore.setOnClickListener {
-            onScoreClick(student)
+        // Xử lý ẩn/hiện dựa trên mode
+        if (showFinanceOnly) {
+            holder.btnGoToScore.visibility = View.GONE
+            holder.btnGoToFinance.visibility = View.VISIBLE
+        } else {
+            holder.btnGoToScore.visibility = View.VISIBLE
+            holder.btnGoToFinance.visibility = View.GONE
         }
 
-        // Bấm vào Item để Chỉnh sửa
-        holder.itemView.setOnClickListener {
-            onItemClick(student)
-        }
-
-        // Nhấn giữ Item để Xóa
+        holder.btnGoToScore.setOnClickListener { onScoreClick(student) }
+        holder.btnGoToFinance.setOnClickListener { onFinanceClick(student) }
+        
+        holder.itemView.setOnClickListener { onItemClick(student) }
         holder.itemView.setOnLongClickListener {
             onItemLongClick(student)
             true

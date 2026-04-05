@@ -65,7 +65,12 @@
                     android:background="@android:drawable/editbox_background"
                     android:hint="Nhập UID Sinh viên"
                     android:paddingHorizontal="12dp"
-                    android:layout_marginBottom="12dp"/>
+                    android:layout_marginBottom="12dp"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:lines="1"
+                    android:gravity="center_vertical"
+                    android:imeOptions="actionNext"/>
 
                 <EditText
                     android:id="@+id/etSubjectName"
@@ -74,7 +79,12 @@
                     android:background="@android:drawable/editbox_background"
                     android:hint="Tên môn học (VD: Lập trình Android)"
                     android:paddingHorizontal="12dp"
-                    android:layout_marginBottom="12dp"/>
+                    android:layout_marginBottom="12dp"
+                    android:inputType="textCapSentences"
+                    android:maxLines="1"
+                    android:lines="1"
+                    android:gravity="center_vertical"
+                    android:imeOptions="actionNext"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -90,7 +100,12 @@
                         android:layout_marginEnd="6dp"
                         android:background="@android:drawable/editbox_background"
                         android:hint="Học kỳ (VD: HK1)"
-                        android:paddingHorizontal="12dp"/>
+                        android:paddingHorizontal="12dp"
+                        android:inputType="textCapCharacters"
+                        android:maxLines="1"
+                        android:lines="1"
+                        android:gravity="center_vertical"
+                        android:imeOptions="actionNext"/>
 
                     <EditText
                         android:id="@+id/etGrade"
@@ -101,7 +116,10 @@
                         android:background="@android:drawable/editbox_background"
                         android:hint="Điểm số"
                         android:inputType="numberDecimal"
-                        android:paddingHorizontal="12dp"/>
+                        android:maxLines="1"
+                        android:lines="1"
+                        android:gravity="center_vertical"
+                        android:imeOptions="actionDone"/>
                 </LinearLayout>
 
                 <Button
